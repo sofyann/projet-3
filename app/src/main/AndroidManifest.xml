@@ -16,6 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".LeconDuJour" />
+        <activity android:name=".MaProgression" />
+        <activity android:name=".MesLangues" />
+        <activity android:name=".DatesDeCours" />
+        <activity android:name=".ContacterMonFormateur" />
+        <activity android:name=".Exercice"></activity>
     </application>
 
 </manifest>

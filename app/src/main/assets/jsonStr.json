@@ -1,0 +1,339 @@
+{
+	"chapitres" : {
+		"chapitre" : [
+          {
+				"img":"restaurant",
+				"nom":"In the restaurant",
+				"lecon": [
+						{
+							"mot": "Bill",
+							"trad": "L'addition",
+							"exemple": "The bill, please.",
+							"exempleTrad": "L'addition s'il vous plaît."
+						},
+						{
+							"mot": "Bottle",
+							"trad": "Bouteille",
+							"exemple": "A bottle of water please.",
+							"exempleTrad": "Une bouteille d'eau s'il vous plaît."
+						},
+						{
+							"mot": "Bread",
+							"trad": "Pain",
+							"exemple": "More bread, please.",
+							"exempleTrad": "Plus de pain s'il vous plaît."
+						},
+						{
+							"mot": "Crudités",
+							"trad": "Crudités",
+							"exemple": "The bill, please.",
+							"exempleTrad": "L'addition s'il vous plaît."
+						},
+						{
+							"mot": "Cup",
+							"trad": "Tasse",
+							"exemple": "A cup of coffee, please.",
+							"exempleTrad": "Une tasse de café s'il vous plaît."
+						},
+						{
+							"mot": "Diabetic",
+							"trad": "Diabétique",
+							"exemple": "The bill, please.",
+							"exempleTrad": "L'addition s'il vous plaît."
+						},
+						{
+							"mot": "Dinner",
+							"trad": "Dîner",
+							"exemple": "The dinner was excellent.",
+							"exempleTrad": "Le dîner était excellent."
+						},
+						{
+							"mot": "Dish",
+							"trad": "Plat",
+							"exemple": "Dish of the day.",
+							"exempleTrad": "Le plat du jour."
+						},
+						{
+							"mot": "Drink",
+							"trad": "Boisson",
+							"exemple": "What are your drinks ?.",
+							"exempleTrad": "Quelles sont vos boissons ?"
+						},
+						{
+							"mot": "Cake",
+							"trad": "Gâteau",
+							"exemple": "A piece of chocolate cake, please.",
+							"exempleTrad": "Une part de gateau au chocolat s'il vous plaît."
+						}
+
+				],
+				"exercice":[
+                  {
+                    "type": "choisirPhrase",
+                    "phraseFR": "Deux cognacs et l'addition, s'il vous plaît.",
+                    "PhraseVrai": "Two cognacs and the bill, please.",
+                    "PhraseFausse1": "Two cognacs and the menu please.",
+                    "PhraseFausse2": "Two cognacs and the addition, please.",
+                    "PhraseFausse3": "Two cognacs and the dish, please."
+                  },
+
+                  {
+                    "type": "trouverMot",
+                    "bonMot": "Two cognacs and the bill, please.",
+                    "mauvaisMot1": "Two cognacs and the menu please.",
+                    "mauvaisMot2": "Two cognacs and the addition, please.",
+                    "mauvaisMot3": "Two cognacs and the dish, please."
+                  },
+
+                  {
+                    "type": "traduirePhrase",
+                    "phraseCorrect": "Deux cognacs et l'addition, s'il vous plaît."
+                  },
+                  {
+                    "type": "choisirPhrase",
+                    "phraseFR": "Deux cognacs et l'addition, s'il vous plaît.",
+                    "PhraseVrai": "Two cognacs and the bill, please.",
+                    "PhraseFausse1": "Two cognacs and the menu please.",
+                    "PhraseFausse2": "Two cognacs and the addition, please.",
+                    "PhraseFausse3": "Two cognacs and the dish, please."
+                  },
+                  {
+                    "type": "choisirPhrase",
+                    "phraseFR": "Deux cognacs et l'addition, s'il vous plaît.",
+                    "PhraseVrai": "Two cognacs and the bill, please.",
+                    "PhraseFausse1": "Two cognacs and the menu please.",
+                    "PhraseFausse2": "Two cognacs and the addition, please.",
+                    "PhraseFausse3": "Two cognacs and the dish, please."
+                  }
+
+                ]
+
+          },
+
+          {
+            "img":"boutique",
+            "nom":"In the boutique",
+            "lecon": [
+              {
+                "mot": "Bill",
+                "trad": "L'addition",
+                "exemple": "The bill, please.",
+                "exempleTrad": "L'addition s'il vous plaît."
+              },
+              {
+                "mot": "Bottle",
+                "trad": "La bouteille",
+                "exemple": "The bill, please.",
+                "exempleTrad": "L'addition s'il vous plaît."
+              },
+              {
+                "mot": "Bread",
+                "trad": "Pain",
+                "exemple": "The bill, please.",
+                "exempleTrad": "L'addition s'il vous plaît."
+              },
+              {
+                "mot": "Crudités",
+                "trad": "Crudités",
+                "exemple": "The bill, please.",
+                "exempleTrad": "L'addition s'il vous plaît."
+              },
+              {
+                "mot": "Cup",
+                "trad": "Tasse",
+                "exemple": "The bill, please.",
+                "exempleTrad": "L'addition s'il vous plaît."
+              },
+              {
+                "mot": "Diabetic",
+                "trad": "Diabétique",
+                "exemple": "The bill, please.",
+                "exempleTrad": "L'addition s'il vous plaît."
+              },
+              {
+                "mot": "Dinner",
+                "trad": "Dîner",
+                "exemple": "The bill, please.",
+                "exempleTrad": "L'addition s'il vous plaît."
+              },
+              {
+                "mot": "Dish",
+                "trad": "Plat",
+                "exemple": "The bill, please.",
+                "exempleTrad": "L'addition s'il vous plaît."
+              },
+              {
+                "mot": "Drink",
+                "trad": "Boisson",
+                "exemple": "The bill, please.",
+                "exempleTrad": "L'addition s'il vous plaît."
+              },
+              {
+                "mot": "Cake",
+                "trad": "Gâteau",
+                "exemple": "The bill, please.",
+                "exempleTrad": "L'addition s'il vous plaît."
+              }
+
+            ],
+            "exercice":[
+              {
+                "type": "choisirPhrase",
+                "phraseFR": "Deux cognacs et l'addition, s'il vous plaît.",
+                "PhraseVrai": "Two cognacs and the bill, please.",
+                "PhraseFausse1": "Two cognacs and the menu please.",
+                "PhraseFausse2": "Two cognacs and the addition, please.",
+                "PhraseFausse3": "Two cognacs and the dish, please."
+              },
+
+              {
+                "type": "choisirPhrase",
+                "phraseFR": "Deux cognacs et l'addition, s'il vous plaît.",
+                "PhraseVrai": "Two cognacs and the bill, please.",
+                "PhraseFausse1": "Two cognacs and the menu please.",
+                "PhraseFausse2": "Two cognacs and the addition, please.",
+                "PhraseFausse3": "Two cognacs and the dish, please."
+              },
+
+              {
+                "type": "choisirPhrase",
+                "phraseFR": "Deux cognacs et l'addition, s'il vous plaît.",
+                "PhraseVrai": "Two cognacs and the bill, please.",
+                "PhraseFausse1": "Two cognacs and the menu please.",
+                "PhraseFausse2": "Two cognacs and the addition, please.",
+                "PhraseFausse3": "Two cognacs and the dish, please."
+              },
+              {
+                "type": "choisirPhrase",
+                "phraseFR": "Deux cognacs et l'addition, s'il vous plaît.",
+                "PhraseVrai": "Two cognacs and the bill, please.",
+                "PhraseFausse1": "Two cognacs and the menu please.",
+                "PhraseFausse2": "Two cognacs and the addition, please.",
+                "PhraseFausse3": "Two cognacs and the dish, please."
+              },
+              {
+                "type": "choisirPhrase",
+                "phraseFR": "Deux cognacs et l'addition, s'il vous plaît.",
+                "PhraseVrai": "Two cognacs and the bill, please.",
+                "PhraseFausse1": "Two cognacs and the menu please.",
+                "PhraseFausse2": "Two cognacs and the addition, please.",
+                "PhraseFausse3": "Two cognacs and the dish, please."
+              }
+            ]
+
+          },
+
+          {
+            "img":"restaurant",
+            "nom":"In the restaurant",
+            "lecon": [
+              {
+                "mot": "Bill",
+                "trad": "L'addition",
+                "exemple": "The bill, please.",
+                "exempleTrad": "L'addition s'il vous plaît."
+              },
+              {
+                "mot": "Bottle",
+                "trad": "La bouteille",
+                "exemple": "The bill, please.",
+                "exempleTrad": "L'addition s'il vous plaît."
+              },
+              {
+                "mot": "Bread",
+                "trad": "Pain",
+                "exemple": "The bill, please.",
+                "exempleTrad": "L'addition s'il vous plaît."
+              },
+              {
+                "mot": "Crudités",
+                "trad": "Crudités",
+                "exemple": "The bill, please.",
+                "exempleTrad": "L'addition s'il vous plaît."
+              },
+              {
+                "mot": "Cup",
+                "trad": "Tasse",
+                "exemple": "The bill, please.",
+                "exempleTrad": "L'addition s'il vous plaît."
+              },
+              {
+                "mot": "Diabetic",
+                "trad": "Diabétique",
+                "exemple": "The bill, please.",
+                "exempleTrad": "L'addition s'il vous plaît."
+              },
+              {
+                "mot": "Dinner",
+                "trad": "Dîner",
+                "exemple": "The bill, please.",
+                "exempleTrad": "L'addition s'il vous plaît."
+              },
+              {
+                "mot": "Dish",
+                "trad": "Plat",
+                "exemple": "The bill, please.",
+                "exempleTrad": "L'addition s'il vous plaît."
+              },
+              {
+                "mot": "Drink",
+                "trad": "Boisson",
+                "exemple": "The bill, please.",
+                "exempleTrad": "L'addition s'il vous plaît."
+              },
+              {
+                "mot": "Cake",
+                "trad": "Gâteau",
+                "exemple": "The bill, please.",
+                "exempleTrad": "L'addition s'il vous plaît."
+              }
+
+            ],
+            "exercice": [
+              {
+                "type": "choisirPhrase",
+                "phraseFR": "Deux cognacs et l'addition, s'il vous plaît.",
+                "PhraseVrai": "Two cognacs and the bill, please.",
+                "PhraseFausse1": "Two cognacs and the menu please.",
+                "PhraseFausse2": "Two cognacs and the addition, please.",
+                "PhraseFausse3": "Two cognacs and the dish, please."
+              },
+
+              {
+                "type": "choisirPhrase",
+                "phraseFR": "Deux cognacs et l'addition, s'il vous plaît.",
+                "PhraseVrai": "Two cognacs and the bill, please.",
+                "PhraseFausse1": "Two cognacs and the menu please.",
+                "PhraseFausse2": "Two cognacs and the addition, please.",
+                "PhraseFausse3": "Two cognacs and the dish, please."
+              },
+
+              {
+                "type": "choisirPhrase",
+                "phraseFR": "Deux cognacs et l'addition, s'il vous plaît.",
+                "PhraseVrai": "Two cognacs and the bill, please.",
+                "PhraseFausse1": "Two cognacs and the menu please.",
+                "PhraseFausse2": "Two cognacs and the addition, please.",
+                "PhraseFausse3": "Two cognacs and the dish, please."
+              },
+              {
+                "type": "choisirPhrase",
+                "phraseFR": "Deux cognacs et l'addition, s'il vous plaît.",
+                "PhraseVrai": "Two cognacs and the bill, please.",
+                "PhraseFausse1": "Two cognacs and the menu please.",
+                "PhraseFausse2": "Two cognacs and the addition, please.",
+                "PhraseFausse3": "Two cognacs and the dish, please."
+              },
+              {
+                "type": "choisirPhrase",
+                "phraseFR": "Deux cognacs et l'addition, s'il vous plaît.",
+                "PhraseVrai": "Two cognacs and the bill, please.",
+                "PhraseFausse1": "Two cognacs and the menu please.",
+                "PhraseFausse2": "Two cognacs and the addition, please.",
+                "PhraseFausse3": "Two cognacs and the dish, please."
+              }
+            ]
+          }
+        ]
+	}
+}

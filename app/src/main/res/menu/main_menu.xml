@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item
+        android:id="@+id/maProgression"
+        android:title="Ma progression"></item>
+        <item
+        android:id="@+id/meslangues"
+        android:title="Mes langues"></item>
+        <item
+        android:id="@+id/datesDeCours"
+        android:title="Dates de cours"></item>
+        <item
+        android:id="@+id/contacterMonFormateur"
+        android:title="Contacter mon formateur"></item>
+
+</menu>

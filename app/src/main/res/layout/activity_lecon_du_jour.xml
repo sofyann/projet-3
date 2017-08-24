@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fr.fahim.sofyann.multilinguaprojet3.LeconDuJour">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="centerCrop"
+        android:id="@+id/fond"/>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            >
+
+
+            <ImageView
+                android:id="@+id/vignette1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/rectange"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"/>
+
+
+                        <TextView
+                            android:id="@+id/motVignette1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="bill = l'addition"
+                            android:layout_marginTop="27dp"
+                            android:layout_alignTop="@+id/vignette1"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="20sp"
+                            android:textColor="#FFFFFF"
+                            android:tag="0_0"/>
+
+                        <TextView
+                            android:id="@+id/phraseExemple"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="The bill, please."
+                            android:layout_marginTop="42dp"
+                            android:layout_below="@id/motVignette1"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#FFFFFF"
+                            android:tag="0_1"/>
+
+                        <TextView
+                            android:id="@+id/phraseExempleTrad"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="*L'addition s'il vous plaît."
+                            android:layout_below="@+id/phraseExemple"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#FFFFFF"
+                            android:tag="0_2"/>
+
+            <ImageView
+                android:id="@+id/vignette2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/rectange"
+                android:layout_below="@id/vignette1"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"/>
+                        <TextView
+                            android:id="@+id/motVignette2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="bill = l'addition"
+                            android:layout_marginTop="27dp"
+                            android:layout_alignTop="@+id/vignette2"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="20sp"
+                            android:textColor="#FFFFFF"
+                            android:tag="1_0"/>
+
+                        <TextView
+                            android:id="@+id/phraseExemple2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="The bill, please."
+                            android:layout_marginTop="42dp"
+                            android:layout_below="@id/motVignette2"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#FFFFFF"
+                            android:tag="1_1"/>
+
+                        <TextView
+                            android:id="@+id/phraseExempleTrad2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="*L'addition s'il vous plaît."
+                            android:layout_below="@id/phraseExemple2"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#FFFFFF"
+                            android:tag="1_2"/>
+
+
+            <ImageView
+                android:id="@+id/vignette3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/rectange"
+                android:layout_below="@id/vignette2"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"/>
+
+                        <TextView
+                            android:id="@+id/motVignette3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="bill = l'addition"
+                            android:layout_marginTop="27dp"
+                            android:layout_alignTop="@+id/vignette3"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="20sp"
+                            android:textColor="#FFFFFF"
+                            android:tag="2_0"/>
+
+                        <TextView
+                            android:id="@+id/phraseExemple3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="The bill, please."
+                            android:layout_marginTop="42dp"
+                            android:layout_below="@id/motVignette3"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#FFFFFF"
+                            android:tag="2_1"/>
+
+                        <TextView
+                            android:id="@+id/phraseExempleTrad3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="*L'addition s'il vous plaît."
+                            android:layout_below="@id/phraseExemple3"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#FFFFFF"
+                            android:tag="2_2"/>
+
+
+            <ImageView
+                android:id="@+id/vignette4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/rectange"
+                android:layout_below="@id/vignette3"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"/>
+
+
+
+
+                        <TextView
+                            android:id="@+id/motVignette4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="bill = l'addition"
+                            android:layout_marginTop="27dp"
+                            android:layout_alignTop="@id/vignette4"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="20sp"
+                            android:textColor="#FFFFFF"
+                            android:tag="3_0"/>
+
+                        <TextView
+                            android:id="@+id/phraseExemple4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="The bill, please."
+                            android:layout_marginTop="42dp"
+                            android:layout_below="@id/motVignette4"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#FFFFFF"
+                            android:tag="3_1"/>
+
+                        <TextView
+                            android:id="@+id/phraseExempleTrad4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="*L'addition s'il vous plaît."
+                            android:layout_below="@+id/phraseExemple4"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#FFFFFF"
+                            android:tag="3_2"/>
+
+
+            <ImageView
+                android:id="@+id/vignette5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/rectange"
+                android:layout_below="@id/vignette4"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"/>
+                        <TextView
+                            android:id="@+id/motVignette5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="bill = l'addition"
+                            android:layout_marginTop="27dp"
+                            android:layout_alignTop="@+id/vignette5"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="20sp"
+                            android:textColor="#FFFFFF"
+                            android:tag="4_0"/>
+
+                        <TextView
+                            android:id="@+id/phraseExemple5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="The bill, please."
+                            android:layout_marginTop="42dp"
+                            android:layout_below="@id/motVignette5"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#FFFFFF"
+                            android:tag="4_1"/>
+
+                        <TextView
+                            android:id="@+id/phraseExempleTrad5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="*L'addition s'il vous plaît."
+                            android:layout_below="@+id/phraseExemple5"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#FFFFFF"
+                            android:tag="4_2"/>
+
+
+            <ImageView
+                android:id="@+id/vignette6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/rectange"
+                android:layout_below="@id/vignette5"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"/>
+
+                        <TextView
+                            android:id="@+id/motVignette6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="bill = l'addition"
+                            android:layout_marginTop="27dp"
+                            android:layout_alignTop="@+id/vignette6"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="20sp"
+                            android:textColor="#FFFFFF"
+                            android:tag="5_0"/>
+
+                        <TextView
+                            android:id="@+id/phraseExemple6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="The bill, please."
+                            android:layout_marginTop="42dp"
+                            android:layout_below="@id/motVignette6"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#FFFFFF"
+                            android:tag="5_1"/>
+
+                        <TextView
+                            android:id="@+id/phraseExempleTrad6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="*L'addition s'il vous plaît."
+                            android:layout_below="@+id/phraseExemple6"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#FFFFFF"
+                            android:tag="5_2"/>
+
+
+
+            <ImageView
+                android:id="@+id/vignette7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/rectange"
+                android:layout_below="@id/vignette6"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"/>
+
+                        <TextView
+                            android:id="@+id/motVignette7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="bill = l'addition"
+                            android:layout_marginTop="27dp"
+                            android:layout_alignTop="@+id/vignette7"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="20sp"
+                            android:textColor="#FFFFFF"
+                            android:tag="6_0"/>
+
+                        <TextView
+                            android:id="@+id/phraseExemple7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="The bill, please."
+                            android:layout_marginTop="42dp"
+                            android:layout_below="@id/motVignette7"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#FFFFFF"
+                            android:tag="6_1"/>
+
+                        <TextView
+                            android:id="@+id/phraseExempleTrad7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="*L'addition s'il vous plaît."
+                            android:layout_below="@+id/phraseExemple7"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#FFFFFF"
+                            android:tag="6_2"/>
+
+
+
+            <ImageView
+                android:id="@+id/vignette8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/rectange"
+                android:layout_below="@id/vignette7"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"/>
+
+                        <TextView
+                            android:id="@+id/motVignette8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="bill = l'addition"
+                            android:layout_marginTop="27dp"
+                            android:layout_alignTop="@id/vignette8"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="20sp"
+                            android:textColor="#FFFFFF"
+                            android:tag="7_0"/>
+
+                        <TextView
+                            android:id="@+id/phraseExemple8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="The bill, please."
+                            android:layout_marginTop="42dp"
+                            android:layout_below="@id/motVignette8"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#FFFFFF"
+                            android:tag="7_1"/>
+
+                        <TextView
+                            android:id="@+id/phraseExempleTrad8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="*L'addition s'il vous plaît."
+                            android:layout_below="@id/phraseExemple8"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#FFFFFF"
+                            android:tag="7_2"/>
+
+
+
+            <ImageView
+                android:id="@+id/vignette9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/rectange"
+                android:layout_below="@id/vignette8"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"/>
+
+                        <TextView
+                            android:id="@+id/motVignette9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="bill = l'addition"
+                            android:layout_marginTop="27dp"
+                            android:layout_alignTop="@id/vignette9"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="20sp"
+                            android:textColor="#FFFFFF"
+                            android:tag="8_0"/>
+
+                        <TextView
+                            android:id="@+id/phraseExemple9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="The bill, please."
+                            android:layout_marginTop="42dp"
+                            android:layout_below="@id/motVignette9"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#FFFFFF"
+                            android:tag="8_1"/>
+
+                        <TextView
+                            android:id="@+id/phraseExempleTrad9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="*L'addition s'il vous plaît."
+                            android:layout_below="@id/phraseExemple9"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#FFFFFF"
+                            android:tag="8_2"/>
+
+
+
+            <ImageView
+                android:id="@+id/vignette10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/rectange"
+                android:layout_below="@id/vignette9"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"/>
+
+                        <TextView
+                            android:id="@+id/motVignette10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="bill = l'addition"
+                            android:layout_marginTop="27dp"
+                            android:layout_alignTop="@id/vignette10"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="20sp"
+                            android:textColor="#FFFFFF"
+                            android:tag="9_0"/>
+
+                        <TextView
+                            android:id="@+id/phraseExemple10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="The bill, please."
+                            android:layout_marginTop="42dp"
+                            android:layout_below="@id/motVignette10"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="#FFFFFF"
+                            android:tag="9_1"/>
+
+                        <TextView
+                            android:id="@+id/phraseExempleTrad10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="*L'addition s'il vous plaît."
+                            android:layout_below="@id/phraseExemple10"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#FFFFFF"
+                            android:tag="9_2"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/vignette10"
+                android:layout_centerHorizontal="true"
+                android:text="Passé à l'exercice"
+                android:id="@+id/buttonpasserAlexercice"
+                android:onClick="passerAlexercice"/>
+
+        </RelativeLayout>
+
+
+
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
