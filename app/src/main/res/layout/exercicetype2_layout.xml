@@ -1,6 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/rectangleExo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/rectangleexo" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/enoncer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choisissez la phrase correspondante"
+        android:layout_marginTop="20dp"
+        android:layout_alignTop="@id/rectangleExo1"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"/>
+    <TextView
+        android:id="@+id/phrase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deux cognacs et l'addition, s'il vous plait."
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/enoncer"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"/>
+
+
+    <ImageView
+        android:id="@+id/rep1"
+        android:layout_width="367dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/btnrep"
+        android:layout_marginTop="110dp"
+        android:layout_alignTop="@+id/rectangleExo1"
+        android:layout_centerHorizontal="true" />
+    <ImageView
+        android:id="@+id/rep2"
+        android:layout_width="367dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/btnrep"
+        android:layout_marginTop="2dp"
+        android:layout_below="@id/rep1"
+        android:layout_centerHorizontal="true" />
+    <ImageView
+        android:id="@+id/rep"
+        android:layout_width="367dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/btnrep"
+        android:layout_marginTop="2dp"
+        android:layout_below="@id/rep2"
+        android:layout_centerHorizontal="true" />
+    <ImageView
+        android:id="@+id/rep4"
+        android:layout_width="367dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/btnrep"
+        android:layout_marginTop="2dp"
+        android:layout_below="@id/rep"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/btnnext"
+        android:layout_below="@+id/rep4"
+        android:layout_alignRight="@+id/phrase"
+        android:layout_alignEnd="@+id/phrase"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="next"/>
+</RelativeLayout>
