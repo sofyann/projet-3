@@ -6,9 +6,11 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -28,11 +30,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LeconDuJour extends AppCompatActivity {
-    // Déclaration des éléments des vignettes
     Button buttonPasserALexercice;
-    ArrayList<TextView> listMotVignette = new ArrayList<>();
-    ArrayList<TextView> listPhraseExemple = new ArrayList<>();
-    ArrayList<TextView> listPhraseExempleTrad = new ArrayList<>();
+    ArrayList<Vignette> vignettes= new ArrayList<>();
     String lecon ="";
     String exercice = "";
     ImageView fond;
@@ -54,46 +53,6 @@ public class LeconDuJour extends AppCompatActivity {
         buttonPasserALexercice = (Button)findViewById(R.id.buttonpasserAlexercice);
         fond = (ImageView)findViewById(R.id.fond);
 
-        listMotVignette.add((TextView) findViewById(R.id.motVignette1));
-        listPhraseExemple.add((TextView)findViewById(R.id.phraseExemple));
-        listPhraseExempleTrad.add((TextView)findViewById(R.id.phraseExempleTrad));
-
-        listMotVignette.add((TextView) findViewById(R.id.motVignette2));
-        listPhraseExemple.add((TextView)findViewById(R.id.phraseExemple2));
-        listPhraseExempleTrad.add((TextView)findViewById(R.id.phraseExempleTrad2));
-
-        listMotVignette.add((TextView) findViewById(R.id.motVignette3));
-        listPhraseExemple.add((TextView)findViewById(R.id.phraseExemple3));
-        listPhraseExempleTrad.add((TextView)findViewById(R.id.phraseExempleTrad3));
-
-        listMotVignette.add((TextView) findViewById(R.id.motVignette4));
-        listPhraseExemple.add((TextView)findViewById(R.id.phraseExemple4));
-        listPhraseExempleTrad.add((TextView)findViewById(R.id.phraseExempleTrad4));
-
-        listMotVignette.add((TextView) findViewById(R.id.motVignette5));
-        listPhraseExemple.add((TextView)findViewById(R.id.phraseExemple5));
-        listPhraseExempleTrad.add((TextView)findViewById(R.id.phraseExempleTrad5));
-
-        listMotVignette.add((TextView) findViewById(R.id.motVignette6));
-        listPhraseExemple.add((TextView)findViewById(R.id.phraseExemple6));
-        listPhraseExempleTrad.add((TextView)findViewById(R.id.phraseExempleTrad6));
-
-        listMotVignette.add((TextView) findViewById(R.id.motVignette7));
-        listPhraseExemple.add((TextView)findViewById(R.id.phraseExemple7));
-        listPhraseExempleTrad.add((TextView)findViewById(R.id.phraseExempleTrad7));
-
-        listMotVignette.add((TextView) findViewById(R.id.motVignette8));
-        listPhraseExemple.add((TextView)findViewById(R.id.phraseExemple8));
-        listPhraseExempleTrad.add((TextView)findViewById(R.id.phraseExempleTrad8));
-
-        listMotVignette.add((TextView) findViewById(R.id.motVignette9));
-        listPhraseExemple.add((TextView)findViewById(R.id.phraseExemple9));
-        listPhraseExempleTrad.add((TextView)findViewById(R.id.phraseExempleTrad9));
-
-        listMotVignette.add((TextView) findViewById(R.id.motVignette10));
-        listPhraseExemple.add((TextView)findViewById(R.id.phraseExemple10));
-        listPhraseExempleTrad.add((TextView)findViewById(R.id.phraseExempleTrad10));
-
 
     }
     public void passerAlexercice(View view){
@@ -110,16 +69,22 @@ public class LeconDuJour extends AppCompatActivity {
             jsonObjectStr = new JSONArray(s);
             Log.i("exercice", exercice);
             for (int j = 0; j < jsonObjectStr.length(); j++){
-                  JSONObject temp3 = jsonObjectStr.getJSONObject(j);
-                  String mot = temp3.getString("mot");
-                  String trad = temp3.getString("trad");
-                  String exemple = temp3.getString("exemple");
-                  String exempleTrad = temp3.getString("exempleTrad");
-
-                  listMotVignette.get(j).setText(mot+" = "+trad);
-                  listPhraseExemple.get(j).setText(exemple);
-                  listPhraseExempleTrad.get(j).setText(exempleTrad);
-                    }
+                JSONObject temp3 = jsonObjectStr.getJSONObject(j);
+                String mot = temp3.getString("mot");
+                String trad = temp3.getString("trad");
+                String exemple = temp3.getString("exemple");
+                String exempleTrad = temp3.getString("exempleTrad");
+                String motAvecTrad = mot + " = "+trad;
+                Vignette vignette = new Vignette(motAvecTrad, exemple, exempleTrad);
+                vignettes.add(vignette);
+                }
+            ListView listView = (ListView)findViewById(R.id.listTest);
+            VignetteAdapter adapter = new VignetteAdapter(this, R.layout.vignette_layout, vignettes);
+            listView.setAdapter(adapter);
+            // add button at the end of the ListView
+            LayoutInflater layoutInflater = LayoutInflater.from(this);
+            View v = layoutInflater.inflate(R.layout.footer, null);
+            listView.addFooterView(v);
         } catch (JSONException e) {
             e.printStackTrace();
         }

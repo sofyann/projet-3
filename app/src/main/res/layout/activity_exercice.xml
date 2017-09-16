@@ -20,8 +20,9 @@
         <ImageView
             android:id="@+id/rectangleExo1"
             android:layout_width="wrap_content"
-            android:layout_height="550dp"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:layout_marginTop="20dp"
             app:srcCompat="@drawable/rectangleexo" />
 
@@ -52,7 +53,7 @@
             android:layout_width="367dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/btnrep"
-            android:layout_marginTop="139dp"
+            android:layout_marginTop="110dp"
             android:layout_alignTop="@+id/rectangleExo1"
             android:layout_centerHorizontal="true" />
         <ImageView
@@ -60,16 +61,24 @@
             android:layout_width="367dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/btnrep"
-            android:layout_marginTop="19dp"
+            android:layout_marginTop="2dp"
             android:layout_below="@id/rep1"
             android:layout_centerHorizontal="true" />
         <ImageView
-            android:id="@+id/rep3"
+            android:id="@+id/rep"
             android:layout_width="367dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/btnrep"
-            android:layout_marginTop="19dp"
+            android:layout_marginTop="2dp"
             android:layout_below="@id/rep2"
+            android:layout_centerHorizontal="true" />
+        <ImageView
+            android:id="@+id/rep4"
+            android:layout_width="367dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/btnrep"
+            android:layout_marginTop="2dp"
+            android:layout_below="@id/rep"
             android:layout_centerHorizontal="true" />
 
         <ImageView
@@ -77,10 +86,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/btnnext"
-            android:layout_below="@+id/rep3"
+            android:layout_below="@+id/rep4"
             android:layout_alignRight="@+id/phrase"
             android:layout_alignEnd="@+id/phrase"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="50dp"
             android:layout_marginRight="8dp"
             android:layout_marginEnd="8dp"
             android:onClick="next"/>

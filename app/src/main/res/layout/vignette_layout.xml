@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/vignette1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/rectange"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"/>
+
+
+    <TextView
+        android:id="@+id/motVignette1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bill = l'addition"
+        android:layout_marginTop="27dp"
+        android:layout_alignTop="@+id/vignette1"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"/>
+
+    <TextView
+        android:id="@+id/phraseExemple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="The bill, please."
+        android:layout_marginTop="42dp"
+        android:layout_below="@id/motVignette1"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFFFFF"/>
+
+    <TextView
+        android:id="@+id/phraseExempleTrad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*L'addition s'il vous plaît."
+        android:layout_below="@+id/phraseExemple"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textColor="#FFFFFF"/>
+</RelativeLayout>
