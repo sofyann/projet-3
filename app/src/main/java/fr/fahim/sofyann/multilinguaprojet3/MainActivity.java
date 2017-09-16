@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         constructUI();
-        recupererJSON();
+        getJson();
 
     }
     public void toLeconDuJour(View view){
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         titreLecon = (TextView)findViewById(R.id.titreLecon);
     }
 
-    private void recupererJSON(){
+    private void getJson(){
 
         ParseQuery<ParseObject> query = new  ParseQuery<ParseObject>("Lecon");
         query.whereEqualTo("name","lecon"+numChapitre);
