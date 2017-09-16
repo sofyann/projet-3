@@ -35,7 +35,7 @@
                             android:id="@+id/motVignette1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="bill = l'addition"
+                            android:text=""
                             android:layout_marginTop="27dp"
                             android:layout_alignTop="@+id/vignette1"
                             android:layout_centerHorizontal="true"

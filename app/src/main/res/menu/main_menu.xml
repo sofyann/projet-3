@@ -12,5 +12,6 @@
         <item
         android:id="@+id/contacterMonFormateur"
         android:title="Contacter mon formateur"></item>
-
+        <item android:id="@+id/logout"
+                android:title="Déconnexion"></item>
 </menu>
