@@ -3,11 +3,23 @@ package fr.fahim.sofyann.multilinguaprojet3;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MaProgression extends AppCompatActivity {
+    ListView listView;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -45,5 +57,37 @@ public class MaProgression extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ma_progression);
+        setTitle("Progression");
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Progression");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (e == null){
+                    if (objects.size()>0){
+                        ArrayList<ItemProgression> itemProgressions = new ArrayList<>();
+                        for (ParseObject object : objects){
+                            String nameLecon = object.getString("nameLecon");
+                            String nameLeconInParse = object.getString("nameLeconInParse");
+                            String nameExerciceInParse = object.getString("nameExerciceInParse");
+                            boolean validerOuNon = object.getBoolean("validerOuNon");
+                            String note = object.getString("note");
+                            ItemProgression itemProgression = new ItemProgression(nameLecon, note, nameLeconInParse,nameExerciceInParse,validerOuNon);
+                            itemProgressions.add(itemProgression);
+                        }
+                        displayProgress(itemProgressions);
+                    }
+                } else {
+                    Toast.makeText(MaProgression.this, "Problème de connexion, veuillez réessayer", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+    }
+
+    private void displayProgress(ArrayList<ItemProgression> itemProgressions){
+        listView = (ListView)findViewById(R.id.listViewProgression);
+        ProgressionAdapter progressionAdapter = new ProgressionAdapter(this, R.layout.itemprogression_layout, itemProgressions);
+        listView.setAdapter(progressionAdapter);
     }
 }
