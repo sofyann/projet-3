@@ -34,6 +34,8 @@ public class Exercice extends AppCompatActivity {
     ImageView fond;
     ArrayList exercices = new ArrayList();
     RelativeLayout relativeLayoutBackground;
+    static int note;
+    int exerciceNumber = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,12 +102,12 @@ public class Exercice extends AppCompatActivity {
                     String mauvaisMot1 = jsonObject.getString("mauvaisMot1");
                     String mauvaisMot2 = jsonObject.getString("mauvaisMot2");
                     String mauvaisMot3 = jsonObject.getString("mauvaisMot3");
-                    ExerciceType2 exercice = new ExerciceType2(enoncer, bonMot,motFR, mauvaisMot1, mauvaisMot2, mauvaisMot3);
+                    ExerciceType2 exercice = new ExerciceType2(enoncer, bonMot,motFR, mauvaisMot1, mauvaisMot2, mauvaisMot3, this);
                     exercices.add(exercice);
                 } else if (type.matches("traduirePhrase")){
                     String phraseCorrect = jsonObject.getString("phraseCorrect");
                     String phraseFR = jsonObject.getString("phraseFR");
-                    ExerciceType3 exercice = new ExerciceType3(enoncer, phraseCorrect,phraseFR);
+                    ExerciceType3 exercice = new ExerciceType3(enoncer, phraseCorrect,phraseFR, this);
                     exercices.add(exercice);
                 }
             }
@@ -116,13 +118,20 @@ public class Exercice extends AppCompatActivity {
         }
     }
     private void generateExercisesLayoutsRandom(){
-        ExerciceType1 exerciceType1 = (ExerciceType1) exercices.get(0);
-        relativeLayoutBackground.addView(exerciceType1);
-        Log.i("Exercice created","success");
+        for (int i = 0; i < exercices.size(); i++){
+            relativeLayoutBackground.addView((View) exercices.get(i));
+            if (i != 0){
+               ((View) exercices.get(i)).setTranslationX(2500f);
+            }
+        }
+//        relativeLayoutBackground.addView((View) exercices.get(1));
 
-    }
-
-    public void repSelectedExerciceType1(View view){
+        //exercice2 = (ExerciceType1) exercices.get(3);
+        //relativeLayoutBackground.addView(exercice2);
+//        exercice2.setTranslationX(2500f);
+  //      exercice3 = (ExerciceType1) exercices.get(4);
+      //  relativeLayoutBackground.addView(exercice3);
+    //    exercice3.setTranslationX(2500f);
 
     }
 
@@ -131,6 +140,16 @@ public class Exercice extends AppCompatActivity {
     }
 
     public void next(View view){
+        int exercicesSize = exercices.size();
+        // Tant qu'il y a des exercices on passe au suivant
+        if (exercicesSize > exerciceNumber && exerciceNumber < exercicesSize -1){
+            ((View) exercices.get(exerciceNumber)).animate().translationXBy(-2500f).setDuration(2000);
+            ((View) exercices.get(exerciceNumber+1)).animate().translationXBy(-2500f).setDuration(2000);
+        } else if (exerciceNumber == exercicesSize){
+        // quand on a fait tous les exercices on passe a la soumission de l'exercice
+
+        }
+        exerciceNumber +=1;
 
     }
 }

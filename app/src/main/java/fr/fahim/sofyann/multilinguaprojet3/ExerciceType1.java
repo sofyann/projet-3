@@ -2,10 +2,12 @@ package fr.fahim.sofyann.multilinguaprojet3;
 
 import android.content.Context;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by Sofyann on 16/09/2017.
@@ -23,10 +25,10 @@ public class ExerciceType1 extends RelativeLayout{
 
     private TextView enoncerView;
     private TextView phraseFRView;
-    private Button phraseVraiView;
-    private Button phraseFausseView1;
-    private Button phraseFausseView2;
-    private Button phraseFausseView3;
+    private Button btn1;
+    private Button btn2;
+    private Button btn3;
+    private Button btn4;
 
 
     public ExerciceType1(String enoncer, String phraseFR, String phraseVrai, String phraseFausse1, String phraseFausse2, String phraseFausse3, Context context){
@@ -48,15 +50,45 @@ public class ExerciceType1 extends RelativeLayout{
         inflate(getContext(), R.layout.exercicetype1_layout,this);
         this.enoncerView = (TextView)findViewById(R.id.enoncer);
         this.phraseFRView = (TextView)findViewById(R.id.phraseFR);
-        this.phraseVraiView = (Button)findViewById(R.id.rep1);
-        this.phraseFausseView1 = (Button)findViewById(R.id.rep2);
-        this.phraseFausseView2 = (Button)findViewById(R.id.rep3);
-        this.phraseFausseView3 = (Button)findViewById(R.id.rep4);
+        this.btn1 = (Button)findViewById(R.id.rep1);
+        this.btn2 = (Button)findViewById(R.id.rep2);
+        this.btn3 = (Button)findViewById(R.id.rep3);
+        this.btn4= (Button)findViewById(R.id.rep4);
         enoncerView.setText(enoncer);
         phraseFRView.setText(phraseFR);
-        phraseVraiView.setText(phraseVrai);
-        phraseFausseView1.setText(phraseFausse1);
-        phraseFausseView2.setText(phraseFausse2);
-        phraseFausseView3.setText(phraseFausse3);
+//        randomSetText();
+        btn1.setText(phraseVrai);
+        btn2.setText(phraseFausse1);
+        btn3.setText(phraseFausse2);
+        btn4.setText(phraseFausse3);
+    }
+    private void randomSetText(){
+        ArrayList<String> ar1 = new ArrayList<>();
+        ar1.add(phraseVrai);
+        ar1.add(phraseFausse1);
+        ar1.add(phraseFausse2);
+        ar1.add(phraseFausse3);
+        ArrayList<String> arRandomlist = new ArrayList<>();
+
+        Log.i("List 1", ar1.toString());
+        Log.i("Random list", arRandomlist.toString());
+
+
+
+    }
+    public Button getBtn1() {
+        return btn1;
+    }
+
+    public Button getBtn2() {
+        return btn2;
+    }
+
+    public Button getBtn3() {
+        return btn3;
+    }
+
+    public Button getBtn4() {
+        return btn4;
     }
 }
