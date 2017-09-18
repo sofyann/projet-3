@@ -1,6 +1,7 @@
 package fr.fahim.sofyann.multilinguaprojet3;
 
 import android.content.Context;
+import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -10,7 +11,7 @@ import android.widget.TextView;
  */
 
 // Trouver le mot
-public class ExerciceType2 extends RelativeLayout {
+public class ExerciceType2 extends RelativeLayout implements ExerciceType, View.OnClickListener {
     private String type = "trouverMot";
     private String enoncer;
     private String motFR;
@@ -25,6 +26,8 @@ public class ExerciceType2 extends RelativeLayout {
     private Button btn2;
     private Button btn3;
     private Button btn4;
+
+    private String reponse;
     public ExerciceType2(String enoncer, String bonMot, String motFR, String mauvaisMot1, String mauvaisMot2, String mauvaisMot3, Context context){
         super(context);
         this.enoncer = enoncer;
@@ -47,11 +50,36 @@ public class ExerciceType2 extends RelativeLayout {
         this.btn4= (Button)findViewById(R.id.rep4);
         enoncerView.setText(enoncer);
         motFRView.setText(motFR);
-//        randomSetText();
         btn1.setText(bonMot);
         btn2.setText(mauvaisMot1);
         btn3.setText(mauvaisMot2);
         btn4.setText(mauvaisMot3);
+        btn1.setOnClickListener(this);
+        btn2.setOnClickListener(this);
+        btn3.setOnClickListener(this);
+        btn4.setOnClickListener(this);
     }
-
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.rep1:
+                reponse = btn1.getText().toString();
+                break;
+            case R.id.rep2:
+                reponse = btn2.getText().toString();
+                break;
+            case R.id.rep3:
+                reponse = btn3.getText().toString();
+                break;
+            case R.id.rep4:
+                reponse = btn4.getText().toString();
+                break;
+        }
+    }
+    @Override
+    public boolean resultat() {
+        if (reponse.matches(bonMot)){
+            return true;
+        } else return false;
+    }
 }

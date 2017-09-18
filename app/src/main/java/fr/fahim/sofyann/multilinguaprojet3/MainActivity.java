@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
     static int numChapitre = 0;
     String leconDuJour = "";
     int imgID;
+    static String nomLecon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -138,8 +139,8 @@ public class MainActivity extends AppCompatActivity {
             imgID = getResources().getIdentifier(temp, "drawable", getPackageName());
             fond.setImageResource(imgID);
             numLecon.setText("Leçon "+(numChapitre+1));
-            temp = jsonObject.getString("nom");
-            titreLecon.setText(temp);
+            nomLecon = jsonObject.getString("nom");
+            titreLecon.setText(nomLecon);
             leconDuJour = jsonObject.getString("lecon");
         } catch (JSONException e) {
             e.printStackTrace();

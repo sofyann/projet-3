@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/rectangleNote"
+        android:layout_width="500dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/rectanglenote" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/messageResultat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="19sp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Dommage ! Vous n'avez pas réussi cette\nleçon avec la note de : "
+        android:textColor="#FFFFFF"
+        android:layout_alignTop="@id/rectangleNote"/>
+
+    <TextView
+        android:id="@+id/note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="19sp"
+        android:layout_below="@id/messageResultat"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="2/5"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/relire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="19sp"
+        android:gravity="center"
+        android:text="Vous pourrez relire la leçon et l'exercice à\ntout moment en allant dans \n Ma progression"
+        android:textColor="#FFFFFF"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+    <ImageView
+        android:id="@+id/sendResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/btnnext"
+        android:layout_alignBottom="@+id/rectangleNote"
+        android:layout_alignRight="@+id/relire"
+        android:layout_alignEnd="@+id/relire"
+        android:layout_marginBottom="12dp" />
+
+</RelativeLayout>

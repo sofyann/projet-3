@@ -34,8 +34,8 @@ public class Exercice extends AppCompatActivity {
     ImageView fond;
     ArrayList exercices = new ArrayList();
     RelativeLayout relativeLayoutBackground;
-    static int note;
     int exerciceNumber = 0;
+    int noteInt = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,32 +124,43 @@ public class Exercice extends AppCompatActivity {
                ((View) exercices.get(i)).setTranslationX(2500f);
             }
         }
-//        relativeLayoutBackground.addView((View) exercices.get(1));
-
-        //exercice2 = (ExerciceType1) exercices.get(3);
-        //relativeLayoutBackground.addView(exercice2);
-//        exercice2.setTranslationX(2500f);
-  //      exercice3 = (ExerciceType1) exercices.get(4);
-      //  relativeLayoutBackground.addView(exercice3);
-    //    exercice3.setTranslationX(2500f);
-
     }
 
-    public void repSelectedExerciceType2(View view){
-
-    }
 
     public void next(View view){
         int exercicesSize = exercices.size();
         // Tant qu'il y a des exercices on passe au suivant
         if (exercicesSize > exerciceNumber && exerciceNumber < exercicesSize -1){
+            ExerciceType exerciceCourant = (ExerciceType) exercices.get(exerciceNumber);
+            boolean bonneOuMauvaiseReponse = exerciceCourant.resultat();
+            if (bonneOuMauvaiseReponse == true){
+                noteInt++;
+                Log.i("reponse", "correct");
+            }else{
+                Log.i("reponse", "fausse");
+            }
+
             ((View) exercices.get(exerciceNumber)).animate().translationXBy(-2500f).setDuration(2000);
             ((View) exercices.get(exerciceNumber+1)).animate().translationXBy(-2500f).setDuration(2000);
-        } else if (exerciceNumber == exercicesSize){
-        // quand on a fait tous les exercices on passe a la soumission de l'exercice
 
+        } else if (exerciceNumber == exercicesSize-1){
+            ExerciceType exerciceCourant = (ExerciceType) exercices.get(exercicesSize-1);
+            boolean bonneOuMauvaiseReponse = exerciceCourant.resultat();
+            if (bonneOuMauvaiseReponse == true){
+                noteInt++;
+                Log.i("reponse", "correct");
+            }else{
+                Log.i("reponse", "fausse ici");
+            }
+        // quand on a fait tous les exercices on passe a la soumission de l'exercice
+            Note note = new Note(this, noteInt, exercicesSize);
+            relativeLayoutBackground.addView((View) note);
+            note.setTranslationX(2500f);
+            ((View) exercices.get(exerciceNumber)).animate().translationXBy(-2500f).setDuration(2000);
+            note.animate().translationXBy(-2500f).setDuration(2000);
         }
         exerciceNumber +=1;
 
     }
+
 }
