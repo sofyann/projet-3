@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="#46565C"
+    >
+    <ImageView
+        android:layout_width="102dp"
+        android:layout_height="124dp"
+        android:src="@drawable/agendalogo"
+        android:layout_weight="0.06"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="19/09/2017"
+        android:textSize="19sp"
+        android:layout_marginLeft="5dp"
+        android:id="@+id/date"
+        android:textColor="#ECEEEE"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="15h00"
+        android:textSize="19sp"
+        android:layout_marginLeft="5dp"
+        android:id="@+id/heure"
+        android:textColor="#ECEEEE"/>
+    <TextView
+        android:id="@+id/duree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1h"
+        android:layout_marginLeft="5dp"
+        android:textSize="19sp"
+        android:textColor="#ECEEEE"/>
+    <TextView
+        android:id="@+id/event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Examen"
+        android:textSize="19sp"
+        android:layout_marginLeft="5dp"
+        android:textColor="#ECEEEE"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
