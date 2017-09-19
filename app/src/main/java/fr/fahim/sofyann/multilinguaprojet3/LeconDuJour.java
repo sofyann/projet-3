@@ -1,10 +1,9 @@
 package fr.fahim.sofyann.multilinguaprojet3;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,23 +12,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class LeconDuJour extends AppCompatActivity {
     Button buttonPasserALexercice;
@@ -38,7 +24,7 @@ public class LeconDuJour extends AppCompatActivity {
     String exercice = "";
     ImageView fond;
     byte[] bytes;
-
+    static boolean modeRelecture;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,11 +41,11 @@ public class LeconDuJour extends AppCompatActivity {
             if (bmp != null){
                 Log.i("conversion", "succes");
             }
-        }else{
-            Log.i("bytes ", "null");
         }
 
-
+        if (modeRelecture == false){
+            exercice = intent.getStringExtra("exercice");
+        }
         affichageLecon(lecon);
     }
 
@@ -73,6 +59,7 @@ public class LeconDuJour extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),Exercice.class);
         intent.putExtra("exercice", exercice);
         intent.putExtra("imageFond", bytes);
+        intent.putExtra("exercice", exercice);
         startActivity(intent);
     }
 
@@ -81,7 +68,6 @@ public class LeconDuJour extends AppCompatActivity {
 
         try {
             jsonObjectStr = new JSONArray(s);
-            Log.i("exercice", exercice);
             for (int j = 0; j < jsonObjectStr.length(); j++){
                 JSONObject temp3 = jsonObjectStr.getJSONObject(j);
                 String mot = temp3.getString("mot");
@@ -98,6 +84,10 @@ public class LeconDuJour extends AppCompatActivity {
             // add button at the end of the ListView
             LayoutInflater layoutInflater = LayoutInflater.from(this);
             View v = layoutInflater.inflate(R.layout.footer, null);
+            if (modeRelecture){
+                Button button = v.findViewById(R.id.buttonpasserAlexercice);
+                button.setText("Relire l'exercice");
+            }
             listView.addFooterView(v);
         } catch (JSONException e) {
             e.printStackTrace();

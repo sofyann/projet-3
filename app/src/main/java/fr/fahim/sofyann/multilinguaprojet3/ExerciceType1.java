@@ -7,9 +7,6 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 /**
  * Created by Sofyann on 16/09/2017.
  */
@@ -92,5 +89,24 @@ public class ExerciceType1 extends RelativeLayout implements ExerciceType, View.
         } else return false;
     }
 
+    @Override
+    public String getType() {
+        return type;
+    }
 
+    public Button getBtn1() {
+        return btn1;
+    }
+
+    public Button getBtn2() {
+        return btn2;
+    }
+
+    public Button getBtn3() {
+        return btn3;
+    }
+
+    public Button getBtn4() {
+        return btn4;
+    }
 }

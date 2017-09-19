@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fr.fahim.sofyann.multilinguaprojet3.ContacterMonFormateur">
+    tools:context="fr.fahim.sofyann.multilinguaprojet3.ContacterMonFormateur"
+    android:background="#627881">
 
 </android.support.constraint.ConstraintLayout>

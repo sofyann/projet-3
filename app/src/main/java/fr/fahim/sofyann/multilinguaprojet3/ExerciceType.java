@@ -6,4 +6,6 @@ package fr.fahim.sofyann.multilinguaprojet3;
 
 public interface ExerciceType {
     public boolean resultat();
+    public String type = "";
+    public String getType();
 }

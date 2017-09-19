@@ -38,6 +38,7 @@ public class Exercice extends AppCompatActivity {
     RelativeLayout relativeLayoutBackground;
     int exerciceNumber = 0;
     int noteInt = 0;
+    String exerciceRelecture = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +48,15 @@ public class Exercice extends AppCompatActivity {
         byte[] bytes = intent.getByteArrayExtra("imageFond");
         Bitmap imageFond = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
         fond.setImageBitmap(imageFond);
+        System.out.println(intent.getStringExtra("exercice"));
+        if(LeconDuJour.modeRelecture ==true){
+
+            exerciceRelecture = intent.getStringExtra("exercice");
+
+        }
+        if (exerciceRelecture == ""){
+            Log.i("exercicerelecture", "null");
+        }
         getJson();
     }
 
@@ -56,8 +66,13 @@ public class Exercice extends AppCompatActivity {
     }
 
     private void getJson(){
+
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Exercice");
-        query.whereEqualTo("name", "exercice"+MainActivity.numChapitre);
+        if (LeconDuJour.modeRelecture == false){
+            query.whereEqualTo("name", "exercice"+MainActivity.numChapitre);
+        }else {
+            query.whereEqualTo("name", exerciceRelecture);
+        }
         query.setLimit(1);
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
@@ -75,7 +90,6 @@ public class Exercice extends AppCompatActivity {
                                     String line = reader.nextLine();
                                     jsonStr += line;
                                 }
-                                Log.i("json", jsonStr);
                                 convertJsonToExercice(jsonStr);
                             }
                         }
@@ -122,6 +136,21 @@ public class Exercice extends AppCompatActivity {
         }
     }
     private void generateExercisesLayoutsRandom(){
+        if (LeconDuJour.modeRelecture == true){
+            for (int i = 0; i<exercices.size(); i++){
+                if (((ExerciceType)exercices.get(i)).getType() == "choisirPhrase"){
+                    ExerciceType1 exerciceType1 = (ExerciceType1) exercices.get(i);
+                    exerciceType1.getBtn2().setVisibility(View.INVISIBLE);
+                    exerciceType1.getBtn3().setVisibility(View.INVISIBLE);
+                    exerciceType1.getBtn4().setVisibility(View.INVISIBLE);
+                } else if (((ExerciceType)exercices.get(i)).getType() == "trouverMot"){
+                    ExerciceType2 exerciceType2 = (ExerciceType2) exercices.get(i);
+                    exerciceType2.getBtn2().setVisibility(View.INVISIBLE);
+                    exerciceType2.getBtn3().setVisibility(View.INVISIBLE);
+                    exerciceType2.getBtn4().setVisibility(View.INVISIBLE);
+                }
+            }
+        }
         for (int i = 0; i < exercices.size(); i++){
             relativeLayoutBackground.addView((View) exercices.get(i));
             if (i != 0){
@@ -135,33 +164,60 @@ public class Exercice extends AppCompatActivity {
         int exercicesSize = exercices.size();
         // Tant qu'il y a des exercices on passe au suivant
         if (exercicesSize > exerciceNumber && exerciceNumber < exercicesSize -1){
-            ExerciceType exerciceCourant = (ExerciceType) exercices.get(exerciceNumber);
-            boolean bonneOuMauvaiseReponse = exerciceCourant.resultat();
-            if (bonneOuMauvaiseReponse == true){
-                noteInt++;
-                Log.i("reponse", "correct");
-            }else{
-                Log.i("reponse", "fausse");
+            if(LeconDuJour.modeRelecture != true){
+                ExerciceType exerciceCourant = (ExerciceType) exercices.get(exerciceNumber);
+                boolean bonneOuMauvaiseReponse = exerciceCourant.resultat();
+                if (bonneOuMauvaiseReponse == true){
+                    noteInt++;
+                    Log.i("reponse", "correct");
+                }else{
+                    Log.i("reponse", "fausse");
+                }
             }
+
 
             ((View) exercices.get(exerciceNumber)).animate().translationXBy(-2500f).setDuration(1000);
             ((View) exercices.get(exerciceNumber+1)).animate().translationXBy(-2500f).setDuration(1000);
 
         } else if (exerciceNumber == exercicesSize-1){
-            ExerciceType exerciceCourant = (ExerciceType) exercices.get(exercicesSize-1);
-            boolean bonneOuMauvaiseReponse = exerciceCourant.resultat();
-            if (bonneOuMauvaiseReponse == true){
-                noteInt++;
-                Log.i("reponse", "correct");
-            }else{
-                Log.i("reponse", "fausse ici");
+            if(LeconDuJour.modeRelecture != true){
+                ExerciceType exerciceCourant = (ExerciceType) exercices.get(exerciceNumber);
+                boolean bonneOuMauvaiseReponse = exerciceCourant.resultat();
+                if (bonneOuMauvaiseReponse == true){
+                    noteInt++;
+                    Log.i("reponse", "correct");
+                }else{
+                    Log.i("reponse", "fausse");
+                }
+                // quand on a fait tous les exercices on passe a la soumission de l'exercice
+                Note note = new Note(this, noteInt, exercicesSize);
+                relativeLayoutBackground.addView((View) note);
+                note.setTranslationX(2500f);
+                ((View) exercices.get(exerciceNumber)).animate().translationXBy(-2500f).setDuration(1000);
+                note.animate().translationXBy(-2500f).setDuration(1000);
+            } else {
+                Button btn = new Button(getApplicationContext());
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT
+                );
+                layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
+                layoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
+                btn.setLayoutParams(layoutParams);
+                relativeLayoutBackground.addView(btn);
+                btn.setTranslationX(2500f);
+                btn.setText("Retour à l'accueil");
+                btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                ((View) exercices.get(exerciceNumber)).animate().translationXBy(-2500f).setDuration(1000);
+                btn.animate().translationXBy(-2500f).setDuration(1000);
             }
-        // quand on a fait tous les exercices on passe a la soumission de l'exercice
-            Note note = new Note(this, noteInt, exercicesSize);
-            relativeLayoutBackground.addView((View) note);
-            note.setTranslationX(2500f);
-            ((View) exercices.get(exerciceNumber)).animate().translationXBy(-2500f).setDuration(1000);
-            note.animate().translationXBy(-2500f).setDuration(1000);
+
         }
         exerciceNumber +=1;
 

@@ -46,4 +46,9 @@ public class ExerciceType3 extends RelativeLayout implements ExerciceType{
         }
 
     }
+
+    @Override
+    public String getType() {
+        return type;
+    }
 }
