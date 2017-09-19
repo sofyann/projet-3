@@ -1,6 +1,8 @@
 package fr.fahim.sofyann.multilinguaprojet3;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -42,7 +44,9 @@ public class Exercice extends AppCompatActivity {
         setContentView(R.layout.activity_exercice);
         constructUI();
         Intent intent = getIntent();
-        fond.setImageResource(intent.getIntExtra("img",0));
+        byte[] bytes = intent.getByteArrayExtra("imageFond");
+        Bitmap imageFond = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+        fond.setImageBitmap(imageFond);
         getJson();
     }
 
@@ -140,8 +144,8 @@ public class Exercice extends AppCompatActivity {
                 Log.i("reponse", "fausse");
             }
 
-            ((View) exercices.get(exerciceNumber)).animate().translationXBy(-2500f).setDuration(2000);
-            ((View) exercices.get(exerciceNumber+1)).animate().translationXBy(-2500f).setDuration(2000);
+            ((View) exercices.get(exerciceNumber)).animate().translationXBy(-2500f).setDuration(1000);
+            ((View) exercices.get(exerciceNumber+1)).animate().translationXBy(-2500f).setDuration(1000);
 
         } else if (exerciceNumber == exercicesSize-1){
             ExerciceType exerciceCourant = (ExerciceType) exercices.get(exercicesSize-1);
@@ -156,8 +160,8 @@ public class Exercice extends AppCompatActivity {
             Note note = new Note(this, noteInt, exercicesSize);
             relativeLayoutBackground.addView((View) note);
             note.setTranslationX(2500f);
-            ((View) exercices.get(exerciceNumber)).animate().translationXBy(-2500f).setDuration(2000);
-            note.animate().translationXBy(-2500f).setDuration(2000);
+            ((View) exercices.get(exerciceNumber)).animate().translationXBy(-2500f).setDuration(1000);
+            note.animate().translationXBy(-2500f).setDuration(1000);
         }
         exerciceNumber +=1;
 

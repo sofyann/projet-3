@@ -2,6 +2,7 @@ package fr.fahim.sofyann.multilinguaprojet3;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
@@ -78,8 +79,9 @@ public class MainActivity extends AppCompatActivity {
     TextView titreLecon;
     static int numChapitre = 0;
     String leconDuJour = "";
-    int imgID;
+    Bitmap imageFond;
     static String nomLecon;
+    byte[] bytes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     public void toLeconDuJour(View view){
         Intent intent = new Intent(getApplicationContext(),LeconDuJour.class);
         intent.putExtra("leconDuJour", leconDuJour);
-        intent.putExtra("fond",imgID);
+        intent.putExtra("imageFond",bytes);
         startActivity(intent);
     }
 
@@ -135,9 +137,33 @@ public class MainActivity extends AppCompatActivity {
     private void miseAJourTitreNum(String s){
         try {
             JSONObject jsonObject = new JSONObject(s);
-            String temp = jsonObject.getString("img");
-            imgID = getResources().getIdentifier(temp, "drawable", getPackageName());
-            fond.setImageResource(imgID);
+            String img = jsonObject.getString("img");
+
+            ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Image");
+            query.whereEqualTo("name", img);
+            query.setLimit(1);
+            query.findInBackground(new FindCallback<ParseObject>() {
+                @Override
+                public void done(List<ParseObject> objects, ParseException e) {
+                    if (e == null){
+                        if(objects.size() > 0){
+                            for (ParseObject object : objects){
+                                ParseFile file = (ParseFile)object.get("image");
+                                file.getDataInBackground(new GetDataCallback() {
+                                    @Override
+                                    public void done(byte[] data, ParseException e) {
+                                        if (e == null && data != null){
+                                            Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+                                            addImageFond(bitmap, data);
+
+                                        }
+                                    }
+                                });
+                            }
+                        }
+                    }
+                }
+            });
             numLecon.setText("Leçon "+(numChapitre+1));
             nomLecon = jsonObject.getString("nom");
             titreLecon.setText(nomLecon);
@@ -146,4 +172,13 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+    private void addImageFond(Bitmap bitmap, byte[] bytes){
+        imageFond = bitmap;
+        fond.setImageBitmap(imageFond);
+        if (imageFond == null){
+            Log.i("image FOnd", "null");
+        }
+        this.bytes = bytes;
+    }
+
 }

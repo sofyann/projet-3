@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -59,6 +61,7 @@ public class MaProgression extends AppCompatActivity {
         setContentView(R.layout.activity_ma_progression);
         setTitle("Progression");
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Progression");
+        query.orderByDescending("createdAt");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
@@ -82,12 +85,22 @@ public class MaProgression extends AppCompatActivity {
             }
         });
 
-
     }
 
     private void displayProgress(ArrayList<ItemProgression> itemProgressions){
         listView = (ListView)findViewById(R.id.listViewProgression);
         ProgressionAdapter progressionAdapter = new ProgressionAdapter(this, R.layout.itemprogression_layout, itemProgressions);
         listView.setAdapter(progressionAdapter);
+        setListeners(itemProgressions);
+    }
+
+    private void setListeners(final ArrayList<ItemProgression> itemProgressions){
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                ItemProgression itemSelected = itemProgressions.get(i);
+
+            }
+        });
     }
 }

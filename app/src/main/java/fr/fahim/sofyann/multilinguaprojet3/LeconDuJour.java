@@ -2,6 +2,8 @@ package fr.fahim.sofyann.multilinguaprojet3;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,7 +37,7 @@ public class LeconDuJour extends AppCompatActivity {
     String lecon ="";
     String exercice = "";
     ImageView fond;
-    int idFond;
+    byte[] bytes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +46,20 @@ public class LeconDuJour extends AppCompatActivity {
         constructUI();
         Intent intent = getIntent();
         lecon = intent.getStringExtra("leconDuJour");
-        idFond = intent.getIntExtra("fond",0);
-        fond.setImageResource(idFond);
+        byte[]bytes = intent.getByteArrayExtra("imageFond");
+        this.bytes = bytes;
+        Bitmap bmp;
+        if (bytes != null){
+            bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+            fond.setImageBitmap(bmp);
+            if (bmp != null){
+                Log.i("conversion", "succes");
+            }
+        }else{
+            Log.i("bytes ", "null");
+        }
+
+
         affichageLecon(lecon);
     }
 
@@ -58,7 +72,7 @@ public class LeconDuJour extends AppCompatActivity {
     public void passerAlexercice(View view){
         Intent intent = new Intent(getApplicationContext(),Exercice.class);
         intent.putExtra("exercice", exercice);
-        intent.putExtra("img", idFond);
+        intent.putExtra("imageFond", bytes);
         startActivity(intent);
     }
 
