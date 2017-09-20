@@ -46,16 +46,21 @@ public class Login extends AppCompatActivity implements View.OnKeyListener {
             public void done(ParseUser object, ParseException e) {
                 if(e == null && object != null){
                     String actualUsername = object.getUsername();
-                    ParseUser.logInInBackground(actualUsername, password, new LogInCallback() {
-                        @Override
-                        public void done(ParseUser user, ParseException e) {
-                            if (e == null && user != null){
-                                login();
-                            } else {
-                                Toast.makeText(Login.this, "Identifiant ou mot de passe incorrect", Toast.LENGTH_SHORT).show();
+                    String role = object.getString("etudiantOuFormateur");
+                    if (role.matches("etudiant")) {
+                        ParseUser.logInInBackground(actualUsername, password, new LogInCallback() {
+                            @Override
+                            public void done(ParseUser user, ParseException e) {
+                                if (e == null && user != null) {
+                                    login();
+                                } else {
+                                    Toast.makeText(Login.this, "Identifiant ou mot de passe incorrect", Toast.LENGTH_SHORT).show();
+                                }
                             }
-                        }
-                    });
+                        });
+                    } else {
+                        Toast.makeText(Login.this, "Vous n'êtes pas étudiant", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
                     Toast.makeText(Login.this, "Adresse email invalide", Toast.LENGTH_SHORT).show();
                 }
