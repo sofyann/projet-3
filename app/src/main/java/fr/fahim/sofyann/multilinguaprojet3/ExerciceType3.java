@@ -34,6 +34,7 @@ public class ExerciceType3 extends RelativeLayout implements ExerciceType{
         this.enoncerView = (TextView)findViewById(R.id.enoncer);
         this.phraseFRView = (TextView)findViewById(R.id.phrase);
         this.reponseUser = (EditText)findViewById(R.id.reponse);
+        enoncerView.setText(enoncer);
     }
 
 

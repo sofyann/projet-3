@@ -30,7 +30,10 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="Email"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:backgroundTint="#21263A"
+            android:textCursorDrawable="@null"
+            android:textColor="#21263A"/>
 
         <EditText
             android:id="@+id/passwordEditText"
@@ -39,7 +42,10 @@
             android:ems="10"
             android:hint="Mot de passe"
             android:inputType="textPassword"
-            android:layout_below="@id/identifiantEditText"/>
+            android:layout_below="@id/identifiantEditText"
+            android:backgroundTint="#21263A"
+            android:textCursorDrawable="@null"
+            android:textColor="#21263A"/>
 
         <Button
             android:id="@+id/loginBtn"

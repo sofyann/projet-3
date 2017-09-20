@@ -83,10 +83,11 @@ public class ExerciceType1 extends RelativeLayout implements ExerciceType, View.
 
     @Override
     public boolean resultat() {
-        Log.i("Comparaison entre ", reponse +" et "+ phraseVrai);
-        if (reponse.matches(phraseVrai)){
-            return true;
-        } else return false;
+      if (reponse != null){
+          if (reponse.matches(phraseVrai)){
+              return true;
+          } else return false;
+      }else return false;
     }
 
     @Override

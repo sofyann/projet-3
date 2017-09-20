@@ -41,7 +41,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="110dp"
         android:layout_alignTop="@+id/rectangleExo1"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#D2D3D7"
+        android:textCursorDrawable="@null"
+        android:textColor="#D2D3D7"/>
 
 
     <ImageView

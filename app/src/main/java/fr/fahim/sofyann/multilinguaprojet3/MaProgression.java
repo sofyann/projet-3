@@ -19,6 +19,7 @@ import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -71,6 +72,7 @@ public class MaProgression extends AppCompatActivity {
         setContentView(R.layout.activity_ma_progression);
         setTitle("Progression");
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Progression");
+        query.whereEqualTo("username", ParseUser.getCurrentUser().getUsername());
         query.orderByDescending("createdAt");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override

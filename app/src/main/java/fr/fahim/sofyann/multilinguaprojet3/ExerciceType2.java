@@ -78,9 +78,11 @@ public class ExerciceType2 extends RelativeLayout implements ExerciceType, View.
     }
     @Override
     public boolean resultat() {
-        if (reponse.matches(bonMot)){
-            return true;
-        } else return false;
+        if (reponse != null){
+            if (reponse.matches(bonMot)){
+                return true;
+            } else return false;
+        }else return false;
     }
 
     @Override
