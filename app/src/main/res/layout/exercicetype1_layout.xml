@@ -43,7 +43,8 @@
         android:layout_marginTop="110dp"
         android:layout_alignTop="@+id/rectangleExo1"
         android:layout_centerHorizontal="true"
-        android:onClick="repSelectedExerciceType1"/>
+        android:onClick="repSelectedExerciceType1"
+        android:textColor="#FFFFFF"/>
     <Button
         android:id="@+id/rep2"
         android:layout_width="367dp"
@@ -52,7 +53,8 @@
         android:layout_marginTop="2dp"
         android:layout_below="@id/rep1"
         android:layout_centerHorizontal="true"
-        android:onClick="repSelectedExerciceType1"/>
+        android:onClick="repSelectedExerciceType1"
+        android:textColor="#FFFFFF"/>
     <Button
         android:id="@+id/rep3"
         android:layout_width="367dp"
@@ -61,7 +63,8 @@
         android:layout_marginTop="2dp"
         android:layout_below="@id/rep2"
         android:layout_centerHorizontal="true"
-        android:onClick="repSelectedExerciceType1"/>
+        android:onClick="repSelectedExerciceType1"
+        android:textColor="#FFFFFF"/>
     <Button
         android:id="@+id/rep4"
         android:layout_width="367dp"
@@ -71,7 +74,7 @@
         android:layout_below="@id/rep3"
         android:layout_centerHorizontal="true"
         android:onClick="repSelectedExerciceType1"
-        />
+        android:textColor="#FFFFFF"/>
 
     <ImageView
         android:id="@+id/next"

@@ -6,6 +6,10 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+
 /**
  * Created by Sofyann on 16/09/2017.
  */
@@ -50,11 +54,17 @@ public class ExerciceType2 extends RelativeLayout implements ExerciceType, View.
         this.btn4= (Button)findViewById(R.id.rep4);
         enoncerView.setText(enoncer);
         motFRView.setText(motFR);
-        btn1.setText(bonMot);
-        btn2.setText(mauvaisMot1);
-        btn3.setText(mauvaisMot2);
-        btn4.setText(mauvaisMot3);
-        btn1.setOnClickListener(this);
+        ArrayList<String> listMots= new ArrayList<>();
+        listMots.add(bonMot);
+        listMots.add(mauvaisMot1);
+        listMots.add(mauvaisMot2);
+        listMots.add(mauvaisMot3);
+        long seed = System.nanoTime();
+        Collections.shuffle(listMots,new Random(seed));
+        btn1.setText(listMots.get(0));
+        btn2.setText(listMots.get(1));
+        btn3.setText(listMots.get(2));
+        btn4.setText(listMots.get(3));
         btn2.setOnClickListener(this);
         btn3.setOnClickListener(this);
         btn4.setOnClickListener(this);

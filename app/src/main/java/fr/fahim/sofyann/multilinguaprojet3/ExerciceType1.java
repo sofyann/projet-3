@@ -7,6 +7,10 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+
 /**
  * Created by Sofyann on 16/09/2017.
  */
@@ -52,16 +56,22 @@ public class ExerciceType1 extends RelativeLayout implements ExerciceType, View.
         this.btn4= (Button)findViewById(R.id.rep4);
         enoncerView.setText(enoncer);
         phraseFRView.setText(phraseFR);
-        btn1.setText(phraseVrai);
-        btn2.setText(phraseFausse1);
-        btn3.setText(phraseFausse2);
-        btn4.setText(phraseFausse3);
+        ArrayList<String> listPhrases = new ArrayList<>();
+        listPhrases.add(phraseVrai);
+        listPhrases.add(phraseFausse1);
+        listPhrases.add(phraseFausse2);
+        listPhrases.add(phraseFausse3);
+        long seed = System.nanoTime();
+        Collections.shuffle(listPhrases,new Random(seed));
+        btn1.setText(listPhrases.get(0));
+        btn2.setText(listPhrases.get(1));
+        btn3.setText(listPhrases.get(2));
+        btn4.setText(listPhrases.get(3));
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
         btn3.setOnClickListener(this);
         btn4.setOnClickListener(this);
-        Log.i("bonne rep", phraseVrai);
-        Log.i("rep du bouton", btn1.getText().toString());
+
     }
     @Override
     public void onClick(View view) {

@@ -28,6 +28,7 @@ import org.json.JSONObject;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -131,6 +132,8 @@ public class Exercice extends AppCompatActivity {
         }
     }
     private void generateExercisesLayoutsRandom(){
+        long seed = System.nanoTime();
+        Collections.shuffle(exercices, new Random(seed));
         if (LeconDuJour.modeRelecture == true){
             for (int i = 0; i<exercices.size(); i++){
                 if (((ExerciceType)exercices.get(i)).getType() == "choisirPhrase"){
