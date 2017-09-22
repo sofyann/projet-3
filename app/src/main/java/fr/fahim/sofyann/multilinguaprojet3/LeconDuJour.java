@@ -85,6 +85,7 @@ public class LeconDuJour extends AppCompatActivity {
             if (modeRelecture){
                 Button button = v.findViewById(R.id.buttonpasserAlexercice);
                 button.setText("Relire l'exercice");
+              //  button.setBackgroundColor();
             }
             listView.addFooterView(v);
         } catch (JSONException e) {

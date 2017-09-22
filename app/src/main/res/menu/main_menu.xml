@@ -4,9 +4,6 @@
         android:id="@+id/maProgression"
         android:title="Ma progression"></item>
         <item
-        android:id="@+id/meslangues"
-        android:title="Mes langues"></item>
-        <item
         android:id="@+id/datesDeCours"
         android:title="Dates de cours"></item>
         <item

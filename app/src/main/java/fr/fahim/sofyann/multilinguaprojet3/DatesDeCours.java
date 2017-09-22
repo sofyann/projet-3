@@ -27,38 +27,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class DatesDeCours extends AppCompatActivity {
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        super.onOptionsItemSelected(item);
-        Intent intent;
-        switch (item.getItemId()){
-            case R.id.maProgression:
-                intent = new Intent(getApplicationContext(),MaProgression.class);
-                startActivity(intent);
-                return true;
-            case R.id.meslangues:
-                intent = new Intent(getApplicationContext(),MesLangues.class);
-                startActivity(intent);
-                return true;
-            case R.id.datesDeCours:
-                intent = new Intent(getApplicationContext(),DatesDeCours.class);
-                startActivity(intent);
-                return true;
-            case R.id.contacterMonFormateur:
-                intent = new Intent(getApplicationContext(),ContacterMonFormateur.class);
-                startActivity(intent);
-                return true;
-            default:
-                return false;
-        }
-    }
     Button listDatesBtn;
     Button calendrierBtn;
     LinearLayout linearLayout;

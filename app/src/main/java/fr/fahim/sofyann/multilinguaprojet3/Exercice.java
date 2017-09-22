@@ -3,6 +3,7 @@ package fr.fahim.sofyann.multilinguaprojet3;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -205,6 +206,9 @@ public class Exercice extends AppCompatActivity {
                 relativeLayoutBackground.addView(btn);
                 btn.setTranslationX(2500f);
                 btn.setText("Retour à l'accueil");
+                btn.setBackground(getResources().getDrawable(R.drawable.roundedbutton));
+                btn.setTextColor(Color.parseColor("#FFFFFF"));
+                btn.setPadding(10,10,10,10);
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

@@ -16,7 +16,6 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".LeconDuJour" />
         <activity android:name=".MaProgression" />
-        <activity android:name=".MesLangues" />
         <activity android:name=".DatesDeCours" />
         <activity android:name=".ContacterMonFormateur" />
         <activity android:name=".Exercice" />

@@ -49,10 +49,6 @@ public class MaProgression extends AppCompatActivity {
                 intent = new Intent(getApplicationContext(),MaProgression.class);
                 startActivity(intent);
                 return true;
-            case R.id.meslangues:
-                intent = new Intent(getApplicationContext(),MesLangues.class);
-                startActivity(intent);
-                return true;
             case R.id.datesDeCours:
                 intent = new Intent(getApplicationContext(),DatesDeCours.class);
                 startActivity(intent);
