@@ -38,12 +38,10 @@ public class LeconDuJour extends AppCompatActivity {
         if (bytes != null){
             bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
             fond.setImageBitmap(bmp);
-            if (bmp != null){
-                Log.i("conversion", "succes");
-            }
+
         }
 
-        if (modeRelecture == false){
+        if (modeRelecture == true){
             exercice = intent.getStringExtra("exercice");
         }
         affichageLecon(lecon);

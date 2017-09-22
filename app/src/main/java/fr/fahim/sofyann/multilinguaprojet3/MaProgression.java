@@ -152,11 +152,12 @@ public class MaProgression extends AppCompatActivity {
                                                                             try {
                                                                                 String lecon =  jsonObject.getString("lecon");
                                                                                 exercice = itemSelected.getNameExerciceInParse();
-                                                                                Log.i("exercice", exercice);
+
                                                                                 Intent intent = new Intent(getApplicationContext(), LeconDuJour.class);
                                                                                 intent.putExtra("leconDuJour", lecon);
                                                                                 intent.putExtra("imageFond", data);
                                                                                 intent.putExtra("exercice", exercice);
+                                                                                Log.i("exercice", exercice);
                                                                                 LeconDuJour.modeRelecture = true;
                                                                                 startActivity(intent);
                                                                             } catch (JSONException e1) {

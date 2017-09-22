@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView fond;
     TextView numLecon;
     TextView titreLecon;
-    static int numChapitre = 0;
+    static int numChapitre = 1;
     String leconDuJour = "";
     Bitmap imageFond;
     static String nomLecon;

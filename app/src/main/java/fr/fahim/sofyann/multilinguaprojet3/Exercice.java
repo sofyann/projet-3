@@ -50,12 +50,7 @@ public class Exercice extends AppCompatActivity {
         fond.setImageBitmap(imageFond);
         System.out.println(intent.getStringExtra("exercice"));
         if(LeconDuJour.modeRelecture ==true){
-
             exerciceRelecture = intent.getStringExtra("exercice");
-
-        }
-        if (exerciceRelecture == ""){
-            Log.i("exercicerelecture", "null");
         }
         getJson();
     }
