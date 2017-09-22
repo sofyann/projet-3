@@ -56,21 +56,26 @@ public class ExerciceType1 extends RelativeLayout implements ExerciceType, View.
         this.btn4= (Button)findViewById(R.id.rep4);
         enoncerView.setText(enoncer);
         phraseFRView.setText(phraseFR);
-        ArrayList<String> listPhrases = new ArrayList<>();
-        listPhrases.add(phraseVrai);
-        listPhrases.add(phraseFausse1);
-        listPhrases.add(phraseFausse2);
-        listPhrases.add(phraseFausse3);
-        long seed = System.nanoTime();
-        Collections.shuffle(listPhrases,new Random(seed));
-        btn1.setText(listPhrases.get(0));
-        btn2.setText(listPhrases.get(1));
-        btn3.setText(listPhrases.get(2));
-        btn4.setText(listPhrases.get(3));
-        btn1.setOnClickListener(this);
-        btn2.setOnClickListener(this);
-        btn3.setOnClickListener(this);
-        btn4.setOnClickListener(this);
+        if (!LeconDuJour.modeRelecture){
+            ArrayList<String> listPhrases = new ArrayList<>();
+            listPhrases.add(phraseVrai);
+            listPhrases.add(phraseFausse1);
+            listPhrases.add(phraseFausse2);
+            listPhrases.add(phraseFausse3);
+            long seed = System.nanoTime();
+            Collections.shuffle(listPhrases,new Random(seed));
+            btn1.setText(listPhrases.get(0));
+            btn2.setText(listPhrases.get(1));
+            btn3.setText(listPhrases.get(2));
+            btn4.setText(listPhrases.get(3));
+            btn1.setOnClickListener(this);
+            btn2.setOnClickListener(this);
+            btn3.setOnClickListener(this);
+            btn4.setOnClickListener(this);
+        } else {
+            btn1.setText(phraseVrai);
+        }
+
 
     }
     @Override

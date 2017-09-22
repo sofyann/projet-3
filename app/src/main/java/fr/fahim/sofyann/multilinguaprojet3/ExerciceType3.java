@@ -25,7 +25,6 @@ public class ExerciceType3 extends RelativeLayout implements ExerciceType{
         this.enoncer = enoncer;
         this.phraseCorrect = phraseCorrect;
         this.phraseFR = phraseFR;
-        Log.i("Phrase correct", phraseCorrect);
         init();
     }
 
@@ -34,7 +33,11 @@ public class ExerciceType3 extends RelativeLayout implements ExerciceType{
         this.enoncerView = (TextView)findViewById(R.id.enoncer);
         this.phraseFRView = (TextView)findViewById(R.id.phrase);
         this.reponseUser = (EditText)findViewById(R.id.reponse);
+        phraseFRView.setText(phraseFR);
         enoncerView.setText(enoncer);
+        if (LeconDuJour.modeRelecture){
+            reponseUser.setText(phraseCorrect);
+        }
     }
 
 

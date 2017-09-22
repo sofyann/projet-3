@@ -2,6 +2,7 @@ package fr.fahim.sofyann.multilinguaprojet3;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,33 +30,25 @@ public class ContacterMonFormateur extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.main_menu, menu);
+        menuInflater.inflate(R.menu.appeler, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
-        Intent intent;
         switch (item.getItemId()){
-            case R.id.maProgression:
-                intent = new Intent(getApplicationContext(),MaProgression.class);
-                startActivity(intent);
-                return true;
+            case R.id.appeler:
+                Intent appel = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:5554"));
+                startActivity(appel);
 
-            case R.id.datesDeCours:
-                intent = new Intent(getApplicationContext(),DatesDeCours.class);
-                startActivity(intent);
-                return true;
-            case R.id.contacterMonFormateur:
-                intent = new Intent(getApplicationContext(),ContacterMonFormateur.class);
-                startActivity(intent);
                 return true;
             default:
                 return false;
         }
     }
     String formateur = "";
+    String formateurNumber = "";
     ArrayList<String> messages = new ArrayList<>();
     ArrayAdapter arrayAdapter;
     @Override
@@ -82,6 +75,20 @@ public class ContacterMonFormateur extends AppCompatActivity {
     private void updateFormateur(final String formateur){
         this.formateur = formateur;
         setTitle(formateur);
+
+        ParseQuery<ParseObject> queryNumber = ParseQuery.getQuery("Contact");
+        queryNumber.whereEqualTo("username", formateur);
+        queryNumber.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (e == null && objects != null){
+                    formateurNumber = "tel:"+objects.get(0).getString("tel");
+                    Log.i("tel formateur", formateurNumber);
+                }
+            }
+        });
+
+
         ListView chatListView = (ListView)findViewById(R.id.chatListView);
         arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, messages);
         chatListView.setAdapter(arrayAdapter);
