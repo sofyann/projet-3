@@ -52,6 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/btnnext"
+        android:onClick="intentToMain"
         android:layout_alignBottom="@+id/rectangleNote"
         android:layout_alignRight="@+id/relire"
         android:layout_alignEnd="@+id/relire"

@@ -133,9 +133,7 @@ public class ContacterMonFormateur extends AppCompatActivity {
 
     public void sendMessage(View view){
         final EditText chatEditText = (EditText)findViewById(R.id.chatEditText);
-
         ParseObject message = new ParseObject("Message");
-
         message.put("sender", ParseUser.getCurrentUser().getUsername());
         message.put("receiver", formateur);
         message.put("message", chatEditText.getText().toString());

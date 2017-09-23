@@ -45,7 +45,7 @@ public class ExerciceType1 extends RelativeLayout implements ExerciceType, View.
         init();
     }
 
-
+    ArrayList<Button> buttons = new ArrayList<>();
     private void init(){
         inflate(getContext(), R.layout.exercicetype1_layout,this);
         this.enoncerView = (TextView)findViewById(R.id.enoncer);
@@ -64,24 +64,23 @@ public class ExerciceType1 extends RelativeLayout implements ExerciceType, View.
             listPhrases.add(phraseFausse3);
             long seed = System.nanoTime();
             Collections.shuffle(listPhrases,new Random(seed));
-            btn1.setText(listPhrases.get(0));
-            btn2.setText(listPhrases.get(1));
-            btn3.setText(listPhrases.get(2));
-            btn4.setText(listPhrases.get(3));
-            btn1.setOnClickListener(this);
-            btn2.setOnClickListener(this);
-            btn3.setOnClickListener(this);
-            btn4.setOnClickListener(this);
+            buttons.add(btn1);
+            buttons.add(btn2);
+            buttons.add(btn3);
+            buttons.add(btn4);
+            for (int i = 0; i < buttons.size(); i++){
+                buttons.get(i).setOnClickListener(this);
+                buttons.get(i).setText(listPhrases.get(i));
+            }
         } else {
             btn1.setText(phraseVrai);
         }
-
-
     }
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.rep1:
+
                 reponse = btn1.getText().toString();
                 break;
             case R.id.rep2:
@@ -108,10 +107,6 @@ public class ExerciceType1 extends RelativeLayout implements ExerciceType, View.
     @Override
     public String getType() {
         return type;
-    }
-
-    public Button getBtn1() {
-        return btn1;
     }
 
     public Button getBtn2() {

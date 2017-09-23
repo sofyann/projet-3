@@ -105,9 +105,6 @@ public class ExerciceType2 extends RelativeLayout implements ExerciceType, View.
         return type;
     }
 
-    public Button getBtn1() {
-        return btn1;
-    }
 
     public Button getBtn2() {
         return btn2;

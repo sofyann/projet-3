@@ -1,6 +1,7 @@
 package fr.fahim.sofyann.multilinguaprojet3;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -8,9 +9,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
 import com.parse.SaveCallback;
+
+import java.util.List;
 
 /**
  * Created by Sofyann on 18/09/2017.
@@ -43,26 +49,36 @@ public class Note extends RelativeLayout {
             noteView.setText(note+"/"+(int)numberOfExercises);
             validerOuNon = true;
         }
-        ImageView sendResult = (ImageView)findViewById(R.id.sendResult);
-        sendResult.setOnClickListener(new OnClickListener() {
+        ParseObject progression = new ParseObject("Progression");
+        progression.put("nameLecon", MainActivity.nomLecon);
+        progression.put("nameLeconInParse", "lecon"+MainActivity.numChapitre);
+        progression.put("nameExerciceInParse", "exercice"+MainActivity.numChapitre);
+        progression.put("validerOuNon", validerOuNon);
+        progression.put("note", note+"/"+(int)numberOfExercises);
+        progression.put("username", ParseUser.getCurrentUser().getUsername());
+        progression.saveInBackground(new SaveCallback() {
             @Override
-            public void onClick(View view) {
-                ParseObject progression = new ParseObject("Progression");
-                progression.put("nameLecon", MainActivity.nomLecon);
-                progression.put("nameLeconInParse", "lecon"+MainActivity.numChapitre);
-                progression.put("nameExerciceInParse", "exercice"+MainActivity.numChapitre);
-                progression.put("validerOuNon", validerOuNon);
-                progression.put("note", note+"/"+(int)numberOfExercises);
-                progression.saveInBackground(new SaveCallback() {
-                    @Override
-                    public void done(ParseException e) {
-                        if (e != null){
-                            Toast.makeText(getContext(), "Problème de connexion, veuillez réessayer", Toast.LENGTH_SHORT).show();
-                        }
+            public void done(ParseException e) {
+                if (e != null){
+                    Toast.makeText(getContext(), "Problème de connexion, veuillez réessayer", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("LatestLecon");
+        query.whereEqualTo("username", ParseUser.getCurrentUser().getUsername());
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                if(e == null){
+                    if (objects.size() >0){
+                        objects.get(0).put("latestLecon", (MainActivity.numChapitre+1));
+                        objects.get(0).saveInBackground();
                     }
-                });
+                }
             }
         });
 
     }
+
 }

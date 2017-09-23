@@ -40,6 +40,7 @@ public class Exercice extends AppCompatActivity {
     RelativeLayout relativeLayoutBackground;
     int exerciceNumber = 0;
     int noteInt = 0;
+    static int numExerciceInParse;
     String exerciceRelecture = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +51,8 @@ public class Exercice extends AppCompatActivity {
         byte[] bytes = intent.getByteArrayExtra("imageFond");
         Bitmap imageFond = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
         fond.setImageBitmap(imageFond);
-        System.out.println(intent.getStringExtra("exercice"));
+        Random random = new Random();
+//        numExerciceInParse = random.nextInt(MainActivity.numChapitre)+(MainActivity.numChapitre-3);
         if(LeconDuJour.modeRelecture ==true){
             exerciceRelecture = intent.getStringExtra("exercice");
         }
@@ -223,6 +225,12 @@ public class Exercice extends AppCompatActivity {
         }
         exerciceNumber +=1;
 
+    }
+
+    public void intentToMain(View view){
+
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
     }
 
 }

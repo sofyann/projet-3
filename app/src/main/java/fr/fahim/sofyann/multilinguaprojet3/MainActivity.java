@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         constructUI();
-        getJson();
+        getLatestLecon();
 
     }
     public void toLeconDuJour(View view){
@@ -100,10 +100,11 @@ public class MainActivity extends AppCompatActivity {
         titreLecon = (TextView)findViewById(R.id.titreLecon);
     }
 
-    private void getJson(){
-
+    private void getJson(int numChapitre){
+        this.numChapitre = numChapitre;
+        Log.i("latestLecon", String.valueOf(this.numChapitre));
         ParseQuery<ParseObject> query = new  ParseQuery<ParseObject>("Lecon");
-        query.whereEqualTo("name","lecon"+numChapitre);
+        query.whereEqualTo("name","lecon"+(this.numChapitre));
         query.setLimit(1);
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
@@ -176,6 +177,26 @@ public class MainActivity extends AppCompatActivity {
             Log.i("image FOnd", "null");
         }
         this.bytes = bytes;
+    }
+
+    private void getLatestLecon(){
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("LatestLecon");
+        query.whereEqualTo("username", ParseUser.getCurrentUser().getUsername());
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                if(e == null){
+                    if (objects != null && objects.size()>0){
+                        int latestLecon = 0;
+                        for (ParseObject object : objects){
+                            int temp = object.getInt("latestLecon");
+                            latestLecon = temp;
+                        }
+                        getJson(latestLecon);
+                    }
+                }
+            }
+        });
     }
 
 }
