@@ -6,53 +6,16 @@
     android:layout_height="match_parent"
     tools:context="fr.fahim.sofyann.multilinguaprojet3.DatesDeCours"
     android:background="#627881">
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/listProchainesDates"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="listProchainesDates"
-                android:text="Prochaines dates" />
-
-            <Button
-                android:id="@+id/calendrier"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Calendrier"
-                android:onClick="calendrier"
-                />
-        </LinearLayout>
         <LinearLayout
             android:id="@+id/layoutListView"
-            android:layout_below="@id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:translationX="-2500px"
-            >
+            android:layout_height="wrap_content">
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/listViewDates">
             </ListView>
         </LinearLayout>
-        <CalendarView
-            android:id="@+id/calendarView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/linearLayout"
 
-
-            />
-    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
