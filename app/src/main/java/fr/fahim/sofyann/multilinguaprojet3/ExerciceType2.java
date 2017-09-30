@@ -1,6 +1,7 @@
 package fr.fahim.sofyann.multilinguaprojet3;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -44,50 +45,82 @@ public class ExerciceType2 extends RelativeLayout implements ExerciceType, View.
     }
 
 
-    private void init(){
+    ArrayList<Button> buttons = new ArrayList<>();
+    private void init() {
         inflate(getContext(), R.layout.exercicetype2_layout, this);
-        this.enoncerView = (TextView)findViewById(R.id.enoncer);
-        this.motFRView = (TextView)findViewById(R.id.phrase);
-        this.btn1 = (Button)findViewById(R.id.rep1);
-        this.btn2 = (Button)findViewById(R.id.rep2);
-        this.btn3 = (Button)findViewById(R.id.rep3);
-        this.btn4= (Button)findViewById(R.id.rep4);
+        this.enoncerView = (TextView) findViewById(R.id.enoncer);
+        this.motFRView = (TextView) findViewById(R.id.phrase);
+        this.btn1 = (Button) findViewById(R.id.rep1);
+        this.btn2 = (Button) findViewById(R.id.rep2);
+        this.btn3 = (Button) findViewById(R.id.rep3);
+        this.btn4 = (Button) findViewById(R.id.rep4);
         enoncerView.setText(enoncer);
         motFRView.setText(motFR);
-        if (!LeconDuJour.modeRelecture){
-            ArrayList<String> listMots= new ArrayList<>();
+        if (!LeconDuJour.modeRelecture) {
+            ArrayList<String> listMots = new ArrayList<>();
             listMots.add(bonMot);
             listMots.add(mauvaisMot1);
             listMots.add(mauvaisMot2);
             listMots.add(mauvaisMot3);
             long seed = System.nanoTime();
-            Collections.shuffle(listMots,new Random(seed));
-            btn1.setText(listMots.get(0));
-            btn2.setText(listMots.get(1));
-            btn3.setText(listMots.get(2));
-            btn4.setText(listMots.get(3));
-            btn2.setOnClickListener(this);
-            btn3.setOnClickListener(this);
-            btn4.setOnClickListener(this);
-        } else {
-            btn1.setText(bonMot);
+            Collections.shuffle(listMots, new Random(seed));
+            buttons.add(btn1);
+            buttons.add(btn2);
+            buttons.add(btn3);
+            buttons.add(btn4);
+            for (int i = 0; i < buttons.size(); i++) {
+                buttons.get(i).setOnClickListener(this);
+                buttons.get(i).setText(listMots.get(i));
+            }
+        }else{
+                btn1.setText(bonMot);
+            }
+
         }
 
-    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.rep1:
+                if (reponse != null){
+                    for (int i = 0; i < buttons.size(); i++){
+                        if (reponse.matches(String.valueOf(buttons.get(i).getText())));
+                        buttons.get(i).setTextColor(Color.parseColor("#FFFFFF"));
+                    }
+                }
                 reponse = btn1.getText().toString();
+                btn1.setTextColor(Color.parseColor("#85CDC1"));
                 break;
             case R.id.rep2:
+                if (reponse != null){
+                    for (int i = 0; i < buttons.size(); i++){
+                        if (reponse.matches(String.valueOf(buttons.get(i).getText())));
+                        buttons.get(i).setTextColor(Color.parseColor("#FFFFFF"));
+                    }
+                }
                 reponse = btn2.getText().toString();
+                btn2.setTextColor(Color.parseColor("#85CDC1"));
                 break;
             case R.id.rep3:
+                if (reponse != null){
+                    for (int i = 0; i < buttons.size(); i++){
+                        if (reponse.matches(String.valueOf(buttons.get(i).getText())));
+                        buttons.get(i).setTextColor(Color.parseColor("#FFFFFF"));
+                    }
+                }
                 reponse = btn3.getText().toString();
+                btn3.setTextColor(Color.parseColor("#85CDC1"));
                 break;
             case R.id.rep4:
+                if (reponse != null){
+                    for (int i = 0; i < buttons.size(); i++){
+                        if (reponse.matches(String.valueOf(buttons.get(i).getText())));
+                        buttons.get(i).setTextColor(Color.parseColor("#FFFFFF"));
+                    }
+                }
                 reponse = btn4.getText().toString();
+                btn4.setTextColor(Color.parseColor("#85CDC1"));
                 break;
         }
     }

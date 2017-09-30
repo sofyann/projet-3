@@ -1,6 +1,7 @@
 package fr.fahim.sofyann.multilinguaprojet3;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -80,17 +81,44 @@ public class ExerciceType1 extends RelativeLayout implements ExerciceType, View.
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.rep1:
-
+                if (reponse != null){
+                    for (int i = 0; i < buttons.size(); i++){
+                        if (reponse.matches(String.valueOf(buttons.get(i).getText())));
+                        buttons.get(i).setTextColor(Color.parseColor("#FFFFFF"));
+                    }
+                }
                 reponse = btn1.getText().toString();
+                btn1.setTextColor(Color.parseColor("#85CDC1"));
                 break;
             case R.id.rep2:
+                if (reponse != null){
+                    for (int i = 0; i < buttons.size(); i++){
+                        if (reponse.matches(String.valueOf(buttons.get(i).getText())));
+                        buttons.get(i).setTextColor(Color.parseColor("#FFFFFF"));
+                    }
+                }
                 reponse = btn2.getText().toString();
+                btn2.setTextColor(Color.parseColor("#85CDC1"));
                 break;
             case R.id.rep3:
+                if (reponse != null){
+                    for (int i = 0; i < buttons.size(); i++){
+                        if (reponse.matches(String.valueOf(buttons.get(i).getText())));
+                        buttons.get(i).setTextColor(Color.parseColor("#FFFFFF"));
+                    }
+                }
                 reponse = btn3.getText().toString();
+                btn3.setTextColor(Color.parseColor("#85CDC1"));
                 break;
             case R.id.rep4:
+                if (reponse != null){
+                    for (int i = 0; i < buttons.size(); i++){
+                        if (reponse.matches(String.valueOf(buttons.get(i).getText())));
+                        buttons.get(i).setTextColor(Color.parseColor("#FFFFFF"));
+                    }
+                }
                 reponse = btn4.getText().toString();
+                btn4.setTextColor(Color.parseColor("#85CDC1"));
                 break;
         }
     }

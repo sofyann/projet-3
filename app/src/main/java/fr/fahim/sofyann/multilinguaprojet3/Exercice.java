@@ -74,8 +74,10 @@ public class Exercice extends AppCompatActivity {
                 int n = MainActivity.numChapitre;
                 Random r = new Random();
                 numExercice = r.nextInt((n)+(n-3));
+                this.numExerciceInParse = numExercice;
             } else {
                 numExercice = MainActivity.numChapitre;
+                this.numExerciceInParse = numExercice;
             }
             query.whereEqualTo("name", "exercice"+numExercice);
         }else {

@@ -54,7 +54,7 @@ public class Note extends RelativeLayout {
         ParseObject progression = new ParseObject("Progression");
         progression.put("nameLecon", MainActivity.nomLecon);
         progression.put("nameLeconInParse", "lecon"+MainActivity.numChapitre);
-        progression.put("nameExerciceInParse", "exercice"+MainActivity.numChapitre);
+        progression.put("nameExerciceInParse", "exercice"+Exercice.numExerciceInParse);
         progression.put("validerOuNon", validerOuNon);
         progression.put("note", note+"/"+(int)numberOfExercises);
         progression.put("username", ParseUser.getCurrentUser().getUsername());
