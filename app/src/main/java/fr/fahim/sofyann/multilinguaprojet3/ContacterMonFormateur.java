@@ -28,6 +28,10 @@ import java.util.List;
 
 
 public class ContacterMonFormateur extends AppCompatActivity {
+    String formateur = "";
+    String formateurNumber = "";
+    ArrayList<String> messages = new ArrayList<>();
+    ArrayAdapter arrayAdapter;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -40,7 +44,7 @@ public class ContacterMonFormateur extends AppCompatActivity {
         super.onOptionsItemSelected(item);
         switch (item.getItemId()){
             case R.id.appeler:
-                Intent appel = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:5554"));
+                Intent appel = new Intent(Intent.ACTION_DIAL, Uri.parse(formateurNumber));
                 startActivity(appel);
 
                 return true;
@@ -48,10 +52,7 @@ public class ContacterMonFormateur extends AppCompatActivity {
                 return false;
         }
     }
-    String formateur = "";
-    String formateurNumber = "";
-    ArrayList<String> messages = new ArrayList<>();
-    ArrayAdapter arrayAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,8 +84,9 @@ public class ContacterMonFormateur extends AppCompatActivity {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
                 if (e == null && objects != null){
-                    formateurNumber = "tel:"+objects.get(0).getString("tel");
+                    String formateurNumber = "tel:"+objects.get(0).getString("tel");
                     Log.i("tel formateur", formateurNumber);
+                    updateNum(formateurNumber);
                 }
             }
         });
@@ -159,5 +161,8 @@ public class ContacterMonFormateur extends AppCompatActivity {
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+    private void updateNum(String formateurNumber){
+        this.formateurNumber = formateurNumber;
     }
 }
