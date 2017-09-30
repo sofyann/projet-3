@@ -8,10 +8,12 @@ import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -197,6 +199,8 @@ public class MainActivity extends AppCompatActivity {
                             if (currentDate.compareTo(dateNextLeconUnlocked) <= 0) {
                                 int temp = object.getInt("latestLecon");
                                 latestLecon = temp -1;
+                                Button btn = (Button)findViewById(R.id.demarrer);
+                                btn.setVisibility(View.INVISIBLE);
                             }else {
                                 int temp = object.getInt("latestLecon");
                                 latestLecon = temp;
@@ -209,4 +213,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK){
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }
