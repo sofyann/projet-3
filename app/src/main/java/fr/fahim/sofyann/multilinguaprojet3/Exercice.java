@@ -67,10 +67,17 @@ public class Exercice extends AppCompatActivity {
     }
 
     private void getJson(){
-
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Exercice");
         if (LeconDuJour.modeRelecture == false){
-            query.whereEqualTo("name", "exercice"+MainActivity.numChapitre);
+            int numExercice;
+            if (MainActivity.numChapitre >= 3){
+                int n = MainActivity.numChapitre;
+                Random r = new Random();
+                numExercice = r.nextInt((n)+(n-3));
+            } else {
+                numExercice = MainActivity.numChapitre;
+            }
+            query.whereEqualTo("name", "exercice"+numExercice);
         }else {
             query.whereEqualTo("name", exerciceRelecture);
         }
