@@ -1,15 +1,19 @@
 package fr.fahim.sofyann.multilinguaprojet3;
 
 
+import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.parse.FindCallback;
+import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -37,12 +41,12 @@ public class DatesDeCours extends AppCompatActivity {
                     if (objects.size()>0){
                         ArrayList<ItemDate> itemDates = new ArrayList<>();
                         for (ParseObject parseObject : objects){
-                            ItemDate itemDate = new ItemDate(parseObject.getInt("jour"),parseObject.getInt("mois"),parseObject.getInt("annee"), parseObject.getInt("heure"),parseObject.getInt("minute"), parseObject.getString("duree"), parseObject.getString("event"));
+                            ItemDate itemDate = new ItemDate(parseObject.getInt("jour"),parseObject.getInt("mois"),parseObject.getInt("annee"), parseObject.getInt("heure"),parseObject.getInt("minute"), parseObject.getString("duree"), parseObject.getString("event"), parseObject.getObjectId());
                             itemDates.add(itemDate);
                         }
                         displayDates(itemDates);
                     }else {
-                        Toast.makeText(DatesDeCours.this, "Aucun cours programmer", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DatesDeCours.this, "Aucune date programmer", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -62,8 +66,38 @@ public class DatesDeCours extends AppCompatActivity {
             try {
                 Date date = sdf.parse(dateString);
                 Date date1 = Calendar.getInstance().getTime();
-                Log.i("date1", String.valueOf(date1));
-                
+                if (date.compareTo(date1) < 0){
+                    ParseQuery<ParseObject>query = new ParseQuery<ParseObject>("Rdv");
+                    query.whereEqualTo("objectId", itemDates.get(i).getObjectId());
+                    query.findInBackground(new FindCallback<ParseObject>() {
+                        @Override
+                        public void done(List<ParseObject> objects, ParseException e) {
+                            if(e == null){
+                                if(objects.size()>0){
+                                    objects.get(0).put("rdvPasser", true);
+                                    objects.get(0).saveInBackground();
+                                }
+                            }
+                        }
+                    });
+                } else {
+                    Notification notification = getNotification(itemDates.get(i).getEvent());
+                    Intent notificationIntent = new Intent(this, NotificationPublisher.class);
+                    notificationIntent.putExtra(NotificationPublisher.NOTIFICATION_ID, 1);
+                    notificationIntent.putExtra(NotificationPublisher.NOTIFICATION, notification);
+                    PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                    long time3;
+                    long time1 = date1.getTime();
+                    long time2 = date.getTime();
+                    time3 = time2 - time1;
+                    Log.i("date1", String.valueOf(date1));
+                    Log.i("date", String.valueOf(date));
+                    Log.i("time3", String.valueOf(time3));
+                    long futureInMillis = SystemClock.elapsedRealtime() + (time3-60000);
+                    Log.i("time3", String.valueOf(futureInMillis));
+                    AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+                    alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, pendingIntent);
+                }
             } catch (java.text.ParseException e) {
                 e.printStackTrace();
             }
@@ -71,7 +105,7 @@ public class DatesDeCours extends AppCompatActivity {
     }
 
     private Notification getNotification(String content) {
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        Intent intent = new Intent(getApplicationContext(), DatesDeCours.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 1, intent, 0);
         Notification.Builder builder = new Notification.Builder(this);
         builder.setContentTitle("Multilingua");

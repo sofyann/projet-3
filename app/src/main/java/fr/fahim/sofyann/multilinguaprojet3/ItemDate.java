@@ -12,7 +12,9 @@ public class ItemDate {
     private int minutes;
     private String duration;
     private String event;
-    public ItemDate(int day, int month, int year, int hour, int minutes, String duration, String event){
+    private String objectId;
+
+    public ItemDate(int day, int month, int year, int hour, int minutes, String duration, String event, String objectId){
         this.day = day;
         this.month = month;
         this.year = year;
@@ -20,6 +22,7 @@ public class ItemDate {
         this.minutes = minutes;
         this.duration = duration;
         this.event = event;
+        this.objectId = objectId;
     }
 
     public int getDay() {
@@ -48,5 +51,9 @@ public class ItemDate {
 
     public String getEvent() {
         return event;
+    }
+
+    public String getObjectId() {
+        return objectId;
     }
 }
