@@ -90,11 +90,7 @@ public class DatesDeCours extends AppCompatActivity {
                     long time1 = date1.getTime();
                     long time2 = date.getTime();
                     time3 = time2 - time1;
-                    Log.i("date1", String.valueOf(date1));
-                    Log.i("date", String.valueOf(date));
-                    Log.i("time3", String.valueOf(time3));
-                    long futureInMillis = SystemClock.elapsedRealtime() + (time3-60000);
-                    Log.i("time3", String.valueOf(futureInMillis));
+                    long futureInMillis = SystemClock.elapsedRealtime() + (time3-3600000);
                     AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
                     alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, pendingIntent);
                 }

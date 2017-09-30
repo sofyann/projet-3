@@ -34,6 +34,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -82,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         constructUI();
         getLatestLecon();
 
@@ -189,8 +192,15 @@ public class MainActivity extends AppCompatActivity {
                     if (objects != null && objects.size()>0){
                         int latestLecon = 0;
                         for (ParseObject object : objects){
-                            int temp = object.getInt("latestLecon");
-                            latestLecon = temp;
+                            Date dateNextLeconUnlocked = object.getDate("nextLeconUnlocked");
+                            Date currentDate = Calendar.getInstance().getTime();
+                            if (currentDate.compareTo(dateNextLeconUnlocked) <= 0) {
+                                int temp = object.getInt("latestLecon");
+                                latestLecon = temp -1;
+                            }else {
+                                int temp = object.getInt("latestLecon");
+                                latestLecon = temp;
+                            }
                         }
                         getJson(latestLecon);
                     }

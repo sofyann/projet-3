@@ -16,6 +16,8 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -73,6 +75,11 @@ public class Note extends RelativeLayout {
                 if(e == null){
                     if (objects.size() >0){
                         objects.get(0).put("latestLecon", (MainActivity.numChapitre+1));
+                        Date date = Calendar.getInstance().getTime();
+                        Log.i("date", String.valueOf(date));
+                        date.setMinutes(date.getMinutes()+2);
+                        Log.i("date + 24", String.valueOf(date));
+                        objects.get(0).put("nextLeconUnlocked", date);
                         objects.get(0).saveInBackground();
                     }
                 }
