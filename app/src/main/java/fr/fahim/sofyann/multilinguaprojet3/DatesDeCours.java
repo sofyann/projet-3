@@ -31,6 +31,7 @@ public class DatesDeCours extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dates_de_cours);
+        setTitle("Date de cours");
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Rdv");
         query.whereEqualTo("username", ParseUser.getCurrentUser().getUsername());
         query.whereEqualTo("rdvPasser", false);

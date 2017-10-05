@@ -48,6 +48,7 @@ public class Exercice extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercice);
+        setTitle("Exercice");
         constructUI();
         Intent intent = getIntent();
         byte[] bytes = intent.getByteArrayExtra("imageFond");

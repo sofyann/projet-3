@@ -29,6 +29,7 @@ public class LeconDuJour extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lecon_du_jour);
+        setTitle("Leçon du jour");
         constructUI();
         Intent intent = getIntent();
         lecon = intent.getStringExtra("leconDuJour");
