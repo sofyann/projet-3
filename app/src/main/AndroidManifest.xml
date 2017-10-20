@@ -11,26 +11,26 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
-        android:name=".StarterApplication"
+        android:name=".Services.StarterApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".LeconDuJour" />
-        <activity android:name=".MaProgression" />
-        <activity android:name=".DatesDeCours" />
-        <activity android:name=".ContacterMonFormateur" />
-        <activity android:name=".Exercice" />
-        <activity android:name=".Login">
+        <activity android:name=".Activity.MainActivity" />
+        <activity android:name=".Activity.LeconDuJour" />
+        <activity android:name=".Activity.MaProgression" />
+        <activity android:name=".Activity.DatesDeCours" />
+        <activity android:name=".Activity.ContacterMonFormateur" />
+        <activity android:name=".Activity.Exercice" />
+        <activity android:name=".Activity.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver android:name=".NotificationPublisher" />
+        <receiver android:name=".Services.NotificationPublisher" />
     </application>
 
 </manifest>
