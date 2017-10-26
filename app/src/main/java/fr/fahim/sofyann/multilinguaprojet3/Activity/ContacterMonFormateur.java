@@ -145,7 +145,7 @@ public class ContacterMonFormateur extends AppCompatActivity {
             @Override
             public void done(ParseException e) {
                 if(e == null){
-                    Toast.makeText(ContacterMonFormateur.this, "Message envoyer", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ContacterMonFormateur.this, "Le message est envoyé", Toast.LENGTH_SHORT).show();
                     messages.add("Vous> "+chatEditText.getText().toString());
                     arrayAdapter.notifyDataSetChanged();
                     chatEditText.setText("");

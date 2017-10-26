@@ -51,7 +51,7 @@ public class DatesDeCours extends AppCompatActivity {
                         }
                         displayDates(itemDates);
                     }else {
-                        Toast.makeText(DatesDeCours.this, "Aucune date programmer", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DatesDeCours.this, "Aucune date programmée", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

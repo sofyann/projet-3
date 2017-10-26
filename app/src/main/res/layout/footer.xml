@@ -9,7 +9,7 @@
         android:layout_gravity="center"
         android:background="@drawable/roundedbutton"
         android:textColor="#ffff"
-        android:text="Passé à l'exercice"
+        android:text="Passer à l'exercice"
         android:padding="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
